@@ -1,0 +1,74 @@
+-- VERSION_4
+-- START DISKCACHE
+/home/sdusunlin/Documents/F/529/code/assign1/.metadata/.plugins/org.eclipse.core.resources/.projects/hw1temp/com.python.pydev.analysis/v2_indexcache
+node|1392338795000|/home/sdusunlin/Documents/F/529/code/assign1/hw1temp/node.py
+reader|1392270117000|/home/sdusunlin/Documents/F/529/code/assign1/hw1temp/reader.py
+helper|1392339138000|/home/sdusunlin/Documents/F/529/code/assign1/hw1temp/helper.py
+validation|1392335492000|/home/sdusunlin/Documents/F/529/code/assign1/hw1temp/validation.py
+sample|1392181301000|/home/sdusunlin/Documents/F/529/code/assign1/hw1temp/sample.py
+main|1392336241000|/home/sdusunlin/Documents/F/529/code/assign1/hw1temp/main.py
+-- END DISKCACHE
+-- START DICTIONARY
+17
+1=helper
+6=validation
+15=Node.cal_new_attribute_fromMis
+8=Validate
+17=Node.run
+14=Node.calculate_new_attribute_fromEntropy
+7=Sample
+12=Node.__init__
+2=main
+16=Validate.__init__
+3=node
+4=reader
+10=Node
+11=Sample.__init__
+9=readFile
+13=readFile.__init__
+5=sample
+-- END DICTIONARY
+-- START TREE 1
+11
+cal|7|cal_node_error!10@cal_chi_square_helper!10@cal_expected_value!10@calculate_stat!10@cal_error!10@cal_chi_square!10@cal_square!10@
+con|1|content!19@
+get|4|get_entropy!10@get_percent!10@get_product!10@get_set_entropy!10@
+ism|1|isMisclass!19@
+isp|1|isPure!10@
+nod|1|Node!25@
+rea|2|reading!19@readFile!33@
+roo|1|root!19@
+sam|1|Sample!41@
+val|1|Validate!49@
+x|1|x!19@
+-- END TREE
+-- START TREE 2
+27
+__i|4|__init__!7&42@__init__!8&50@__init__!9&34@__init__!10&26@
+att|4|attribute_list!11&43@attribute_list!12&27@attribute!13&35@attributeNum!13&35@
+cal|7|cal_gain!14&27@calculate_new_attribute_fromEntropy!10&26@cal_gain!12&27@cal_new_attribute_fromMis!10&26@cal_node_error!8&50@cal_error!8&50@cal_classified_group!8&50@
+cat|3|cat_list_final!15&27@cat_list_final!14&27@cat_list_final!12&27@
+che|1|check_pure!8&50@
+chi|1|child_list!12&27@
+cla|2|classify_group!8&50@classification!8&50@
+com|1|compare_value!12&27@
+con|3|concept_string!12&27@content!13&35@concept_string!16&51@
+cur|1|current_list!12&27@
+f|1|f!13&35@
+fou|1|found_attribute!12&27@
+gen|1|generate_file_attribute!9&34@
+get|3|get_attributes!9&34@get_tablemap!7&42@get_value!7&42@
+ini|1|init_value!7&42@
+ism|1|isMisclassification!12&27@
+neg|2|negative!17&27@negative!12&27@
+par|2|parent_entropy!12&27@parent_property!12&27@
+pos|2|positive!17&27@positive!12&27@
+pre|4|preChildren!10&26@pre_attribute!15&27@pre_attribute!14&27@pre_attribute!12&27@
+rea|3|reader!16&51@read_file_content!9&34@read_single_line!9&34@
+res|1|result_map!16&51@
+roo|1|root!16&51@
+run|2|runChildren!10&26@run!10&26@
+sam|1|sample_num!16&51@
+tab|1|table!11&43@
+upd|1|update_value!7&42@
+-- END TREE

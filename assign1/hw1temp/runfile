@@ -1,0 +1,22 @@
+#!/bin/bash
+
+result="result.txt"
+
+if [ -f $result ]
+then
+	rm -r $result
+else
+	touch result.txt
+fi
+
+for (( c=0; c<=100; c+=1 ))
+do
+	echo "You are using misclassification error checking for decision tree building. The chi-square pvalue is $c." >> $result
+	python main.py training.txt validation.txt $c 1 >> $result
+done
+
+for (( c=0; c<=100; c+=1 ))
+do
+	echo "You are using entropy calculation for decision tree building. The chi-square pvalue is $c." >> $result
+	python main.py training.txt validation.txt $c 2 >> $result
+done
