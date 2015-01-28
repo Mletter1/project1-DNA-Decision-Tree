@@ -20,5 +20,5 @@ print root.child_list
 print root.positive
 print root.negative
 #print the data
-#printing = printer.ShowResult(root)
-#printing.run()
+printing = printer.ShowResult(root)
+printing.run()
