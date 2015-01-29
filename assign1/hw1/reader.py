@@ -13,11 +13,11 @@ class readFile:
     Key arguments:
     fileName -- is the file to read.
     """
-    def __init__(self, file_name):
+    def __init__(self, file_name, att_number=58):
         self.f = open(file_name, "r+")
         self.attribute = []
         self.content = []
-        self.attributeNum = 58
+        self.attributeNum = att_number
 
     #This code is used for test accuracy improvement
     # 	def get_max_percentage(self, list):
