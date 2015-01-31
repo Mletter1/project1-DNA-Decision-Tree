@@ -48,8 +48,17 @@ run the program with training and validation text files and %confidence
 """
 def run():
     global options, args
-    print 'Runnning main script'
+    print "\n" + "***********************************"
+    print 'Runnning main script\n'
+    #build parser with training data
+    parser = fileparser.ParserClass("data/training.txt", 58)
+
     #parse and objectafy training data
+    data = parser.parse_file()
+
+    del parser
+    print '\nrun over'
+    print "***********************************\n"
 
 
 """
