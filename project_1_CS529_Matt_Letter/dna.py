@@ -8,6 +8,10 @@ data structure for holding a piece of DNA
 """
 
 
+class DNAClass(object):
+    pass
+
+
 class DNAClass:
     """
     class set up

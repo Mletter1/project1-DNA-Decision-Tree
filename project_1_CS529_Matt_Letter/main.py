@@ -7,6 +7,7 @@ import optparse
 import time
 import fileparser
 import decision_tree
+import printer
 
 doc = """
 SYNOPSIS
@@ -60,7 +61,22 @@ def run():
     #debug data
 
     #run training
-    decision_tree.DecisionTree(data, parser.get_attributes())
+    root = decision_tree.DecisionTree(parser.get_attributes(), [], None, data, "isPromotor", sys.argv[3])
+    root.run()
+    print root.child_list
+    print root.positive
+    print root.negative
+    #print the data
+    printing = printer.ShowResult(root)
+    printing.run()
+
+
+    #validate the result
+    x = decision_tree.Validate("data/training.txt", root, "isPromotor")
+    x.classification()
+
+    #print accuracy
+    print "The accuracy you got is {0}.".format(1 - x.cal_error())
 
     del parser
     print '\nrun over'
