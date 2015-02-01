@@ -15,7 +15,7 @@ class Validate:
     key arguments:
     file_name -- is the name of file for validation.
     root -- is the root node for training algorithm.
-    concept_string -- is the name of attribute for concept defination.
+    classification_key -- is the name of attribute for concept defination.
     """
     def __init__(self, file_name, root, concept_string):
         self.reader = reader.readFile(file_name)

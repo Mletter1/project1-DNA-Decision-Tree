@@ -6,7 +6,8 @@ import scipy.stats as sst
 __author__ = 'matthewletter'
 
 """
-This class is node class which contains the node in decision tree.
+this class is used to recursively build the decision tree
+it also acts as a level for each treee.
 """
 
 
@@ -15,21 +16,31 @@ class DecisionTree:
     Constructor
 
     Keyword arguments:
-    attribute_list -- is the attributes list for the input data.
+    dictionary_attribute_keys -- is the attributes list for the input data.
     found_attribute --  is the attributes list used so far for classification.
     parent_property -- is the catalog from the parent.
     current_list  -- is the list of samples to separate.
-    concept_string -- is the attribute name used for concept definition.
+    classification_key -- is the attribute name used for concept definition.
     compare_value -- is the p-value for testing.
     """
 
     def __init__(self, attribute_list, found_attribute, parent_property, current_list, concept_string, compare_value):
-        self.attribute_list = attribute_list
+        #our dictionary need some keys
+        self.dictionary_attribute_keys = attribute_list
+
+        #this will be set to empty for the root node
         self.found_attribute = found_attribute
+
+        #list of elements
         self.current_list = current_list
+
+        #dictionary of the child elements for a node
         self.child_list = {}
+
+        #info about the parent node
         self.parent_property = parent_property
-        self.concept_string = concept_string
+        self.classification_key = concept_string
+
         self.parent_entropy = get_set_entropy(current_list, concept_string)
         self.pre_attribute = ""
         self.cal_gain = 0
@@ -45,8 +56,8 @@ class DecisionTree:
     """
 
     def calculate_new_attribute(self):
-        temp_list = list(set(self.attribute_list) - set(self.found_attribute))
-        temp_list.remove(self.concept_string)
+        temp_list = list(set(self.dictionary_attribute_keys) - set(self.found_attribute))
+        temp_list.remove(self.classification_key)
 
         if len(temp_list) == 0:
             return False
@@ -63,9 +74,9 @@ class DecisionTree:
 
             for sublist in cat_list.values():
                 ini_gain -= (
-                    len(sublist) / len(self.current_list) * get_set_entropy(sublist, self.concept_string))
+                    len(sublist) / len(self.current_list) * get_set_entropy(sublist, self.classification_key))
 
-            if cal_chi_square(cat_list.values(), self.concept_string,
+            if cal_chi_square(cat_list.values(), self.classification_key,
                                      self.compare_value) and ini_gain > self.cal_gain:
                 self.cal_gain = ini_gain
                 self.pre_attribute = attr
@@ -81,8 +92,8 @@ class DecisionTree:
         for key in self.cat_list_final.keys():
             new_attribute_list = list(self.found_attribute)
             new_attribute_list.append(self.pre_attribute)
-            self.child_list[key] = DecisionTree(self.attribute_list, new_attribute_list, key, self.cat_list_final[key],
-                                        self.concept_string, self.compare_value)
+            self.child_list[key] = DecisionTree(self.dictionary_attribute_keys, new_attribute_list, key, self.cat_list_final[key],
+                                        self.classification_key, self.compare_value)
 
     """
     This method is called to calculate all children nodes.
@@ -98,12 +109,12 @@ class DecisionTree:
 
     def run(self):
         # check if the sample is pure, if it is pure, just end it
-        result = calculate_stat(self.current_list, self.concept_string)
+        result = calculate_stat(self.current_list, self.classification_key)
 
         self.positive = result["positive"]
         self.negative = result["negative"]
 
-        if isPure(self.current_list, self.concept_string):
+        if isPure(self.current_list, self.classification_key):
             return
 
         if not self.calculate_new_attribute():
@@ -122,6 +133,7 @@ class DecisionTree:
         pass
 
 
+
 """
 This file is used to validate the ID algorithm
 """
@@ -134,7 +146,7 @@ class Validate:
     key arguments:
     file_name -- is the name of file for validation.
     root -- is the root node for training algorithm.
-    concept_string -- is the name of attribute for concept defination.
+    classification_key -- is the name of attribute for concept defination.
     """
 
     def __init__(self, file_name, root, concept_string):
@@ -334,7 +346,7 @@ def get_set_entropy(list_to_cal, attribute):
 Calculate the positive and negative sample numbers.
 
 cur_list -- is the list to check promoter and non-promoter numbers.
-concept_string -- is the attribute name for concept definition.
+classification_key -- is the attribute name for concept definition.
 
 return a dictionary containing promotor and non-promotor numbers.
 """
@@ -356,7 +368,7 @@ def calculate_stat(cur_list, concept_string):
 This method is used to check if the current sample list is pure.
 
 current_list -- is the list to be checked.
-concept_string -- is the attribute name for concept definition.
+classification_key -- is the attribute name for concept definition.
 
 return True if the list only contains promoter or non-promoter. Otherwise, return False.
 """
@@ -441,7 +453,7 @@ This method is called to calculate chi-square value.
 
 Key arguments:
 child_list_to_test -- is the child list for calculation.
-concept_string -- is the name of attribute used for concept definition.
+classification_key -- is the name of attribute used for concept definition.
 compare_value -- is the p-value for testing.
 
 return true if chi-square value is less than expected. Otherwise, return false.

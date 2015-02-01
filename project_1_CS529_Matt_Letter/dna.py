@@ -15,7 +15,7 @@ class DNAClass(object):
 class DNAClass:
     """
     class set up
-    attribute_list is a list of attributes used to scaffold the class
+    dictionary_attribute_keys is a list of attributes used to scaffold the class
     """
 
     def __init__(self, attribute_list=None):

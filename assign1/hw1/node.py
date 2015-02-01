@@ -10,11 +10,11 @@ class Node:
     Constructor
 
     Keyword arguments:
-    attribute_list -- is the attributes list for the input data.
+    dictionary_attribute_keys -- is the attributes list for the input data.
     found_attribute --  is the attributes list used so far for classification.
     parent_property -- is the catalog from the parent.
     current_list  -- is the list of samples to separate.
-    concept_string -- is the attribute name used for concept definition.
+    classification_key -- is the attribute name used for concept definition.
     compare_value -- is the p-value for testing.
     """
     def __init__(self, attribute_list, found_attribute, parent_property, current_list, concept_string, compare_value):

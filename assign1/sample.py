@@ -11,7 +11,7 @@ class Sample:
     """
     Constructor.
     Key arguments:
-    attribute_list -- is the attribute used to build this class.
+    dictionary_attribute_keys -- is the attribute used to build this class.
     """
     def __init__(self, attribute_list):
         self.table = {}

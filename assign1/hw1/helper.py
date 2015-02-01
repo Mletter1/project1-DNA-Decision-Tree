@@ -74,7 +74,7 @@ def get_set_entropy(list_to_cal, attribute):
 Calculate the positive and negative sample numbers.
 
 cur_list -- is the list to check promoter and non-promoter numbers.
-concept_string -- is the attribute name for concept definition.
+classification_key -- is the attribute name for concept definition.
 
 return a dictionary containing promotor and non-promotor numbers.
 """
@@ -95,7 +95,7 @@ def calculate_stat(cur_list, concept_string):
 This method is used to check if the current sample list is pure.
 
 current_list -- is the list to be checked.
-concept_string -- is the attribute name for concept definition.
+classification_key -- is the attribute name for concept definition.
 
 return True if the list only contains promoter or non-promoter. Otherwise, return False. 
 """
@@ -167,7 +167,7 @@ This method is called to calculate chi-square value.
 
 Key arguments:
 child_list_to_test -- is the child list for calculation.
-concept_string -- is the name of attribute used for concept definition.
+classification_key -- is the name of attribute used for concept definition.
 compare_value -- is the p-value for testing.
 
 return true if chi-square value is less than expected. Otherwise, return false.

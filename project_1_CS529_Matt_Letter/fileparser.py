@@ -71,7 +71,7 @@ class ParserClass:
     """
     return attribute list.
     """
-    def get_attributes(self):
+    def get_attribute_keys(self):
         return self.attributes
 
 

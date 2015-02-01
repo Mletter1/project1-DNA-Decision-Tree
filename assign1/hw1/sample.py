@@ -10,7 +10,7 @@ class Sample:
     Constructor.
 
     Key arguments:
-    attribute_list -- is the attribute list used to build one sample.
+    dictionary_attribute_keys -- is the attribute list used to build one sample.
     """
     def __init__(self, attribute_list):
         self.table = {}

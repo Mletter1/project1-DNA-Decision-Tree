@@ -61,18 +61,20 @@ def run():
     #debug data
 
     #run training
-    root = decision_tree.DecisionTree(parser.get_attributes(), [], None, data, "isPromotor", sys.argv[3])
+    root = decision_tree.DecisionTree(parser.get_attribute_keys(), [], None, data, "isPromotor", sys.argv[3])
     root.run()
     print root.child_list
     print root.positive
     print root.negative
+
+
     #print the data
     printing = printer.ShowResult(root)
     printing.run()
 
 
     #validate the result
-    x = decision_tree.Validate("data/training.txt", root, "isPromotor")
+    x = decision_tree.Validate("data/validation.txt", root, "isPromotor")
     x.classification()
 
     #print accuracy
@@ -106,7 +108,7 @@ if __name__ == '__main__':
             print 'TOTAL TIME IN MINUTES:',
             print (time.time() - start_time) / 60.0
         elif len(args) < 1:
-           parser.error('missing argument <training> <validation> <%val>')
+            parser.error('missing argument <training> <validation> <%val>')
         else:
             run()
         #smoth exit if no exceptions are thrown
