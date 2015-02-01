@@ -6,6 +6,7 @@ import traceback
 import optparse
 import time
 import fileparser
+import decision_tree
 
 doc = """
 SYNOPSIS
@@ -55,6 +56,11 @@ def run():
 
     #parse and objectafy training data
     data = parser.parse_file()
+
+    #debug data
+
+    #run training
+    decision_tree.DecisionTree(data, parser.get_attributes())
 
     del parser
     print '\nrun over'

@@ -72,4 +72,4 @@ class readFile:
 #x.read_file_content()
 #print len(x.read_single_line())
 #for item in x.content:
-#	print item.getTableMap()
+#	print item.get_dictionary()

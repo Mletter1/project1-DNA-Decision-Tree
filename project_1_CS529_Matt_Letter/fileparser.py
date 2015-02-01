@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import copy
+import dna
 
 __author__ = 'Matthew letter'
 
@@ -25,7 +26,7 @@ class ParserClass:
     """
 
     def __del__(self):
-        print ("deconstructing buffer")
+        #print ("deconstructing buffer")
         self.file_buffer.close()
     """
     initialize the attributes
@@ -59,10 +60,13 @@ class ParserClass:
                 for letter in word:
                     #print letter
                     result.append(letter)
-        #     element = sample.Sample(copy.deepcopy(self.attributes))  #
-        #     element.init_value(list(result))
-        #     self.content.append(element)
-        # return self.content
+            dna_strand = dna.DNAClass(copy.deepcopy(self.attributes))
+            dna_strand.build_dna_dictionary(list(result))
+            self.data_elements.append(dna_strand)
+
+        #debug
+        #print self.data_elements.pop(1)
+        return self.data_elements
 
     """
     return attribute list.
