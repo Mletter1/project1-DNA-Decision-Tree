@@ -44,15 +44,16 @@ VERSION
     v0.1
 """
 
-
 """
 run the program with training and validation text files and %confidence
 """
+
+
 def run():
     global options, args
     print "\n" + "***********************************"
     print 'Runnning main script\n'
-    #build parser with training data
+    # build parser with training data
     parser = fileparser.ParserClass("data/training.txt", 58)
 
     #parse and objectafy training data
@@ -95,7 +96,7 @@ if __name__ == '__main__':
                                        version='%prog 0.1')
 
         parser.add_option('-v', '--verbose', action='store_true', default=False, help='verbose output')
-        #get the options and args
+        # get the options and args
         (options, args) = parser.parse_args()
 
         #determine what to do with the options supplied by the user

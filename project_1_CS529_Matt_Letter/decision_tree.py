@@ -24,7 +24,7 @@ class DecisionTree:
     compare_value -- is the p-value for testing.
     """
 
-    def __init__(self, attribute_list, found_attribute, parent_property, current_list, concept_string, compare_value):
+    def __init__(self, attribute_list, found_attribute, parent_property, current_list, classification_key, compare_value):
         #our dictionary need some keys
         self.dictionary_attribute_keys = attribute_list
 
@@ -39,14 +39,19 @@ class DecisionTree:
 
         #info about the parent node
         self.parent_property = parent_property
-        self.classification_key = concept_string
+        self.classification_key = classification_key
 
-        self.parent_entropy = get_set_entropy(current_list, concept_string)
+        #find entropy for this node
+        self.parent_entropy = get_set_entropy(current_list, classification_key)
         self.pre_attribute = ""
         self.cal_gain = 0
         self.cat_list_final = {}
+
+        #number of positive and negative values in this node
         self.positive = 0
         self.negative = 0
+
+        #
         self.compare_value = compare_value
 
     """
@@ -108,9 +113,11 @@ class DecisionTree:
     """
 
     def run(self):
+
         # check if the sample is pure, if it is pure, just end it
         result = calculate_stat(self.current_list, self.classification_key)
 
+        #
         self.positive = result["positive"]
         self.negative = result["negative"]
 
@@ -132,7 +139,9 @@ class DecisionTree:
         # print ("deconstructing buffer")
         pass
 
+############################################################################################
 
+############################################################################################
 
 """
 This file is used to validate the ID algorithm
@@ -262,10 +271,9 @@ class Validate:
 
         return result
 
+############################################################################################
 
-"""
-This file provides some basic methods to be used.
-"""
+############################################################################################
 
 """
 This method is used to calculate percentage with numerator and denomator.
@@ -368,13 +376,15 @@ def calculate_stat(cur_list, concept_string):
 This method is used to check if the current sample list is pure.
 
 current_list -- is the list to be checked.
-classification_key -- is the attribute name for concept definition.
+classification_key -- is the attribute name of the classifier.
 
-return True if the list only contains promoter or non-promoter. Otherwise, return False.
+return True iff the list only contains 1 class
 """
 
 
 def isPure(current_list, concept_string):
+
+    #get the class of the first DNA strand in the list
     temp_property = current_list[0].get_value_at_attribute(concept_string)
 
     for item in current_list:
@@ -484,5 +494,5 @@ def cal_chi_square(child_list_to_test, concept_string, compare_value):
 used for testing
 """
 if __name__ == "__main__":
-    obj = DecisionTree
+    obj = DecisionTree()
     del obj
