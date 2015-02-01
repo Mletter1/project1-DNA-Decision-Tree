@@ -13,7 +13,7 @@ class Node:
 	dictionary_attribute_keys -- is the attributes list for the input data.
 	found_attribute --  is the attributes list used so far for classification.
 	parent_property -- is the catalog from the parent.
-	current_list  -- is the list of samples to separate.
+	current_dna_list  -- is the list of samples to separate.
 	classification_key -- is the attribute name used for concept definition.
 	compare_value -- is the p-value for testing.
 	"""

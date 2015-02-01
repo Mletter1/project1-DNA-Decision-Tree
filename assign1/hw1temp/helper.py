@@ -94,7 +94,7 @@ def calculate_stat(cur_list, concept_string):
 """
 This method is used to check if the current sample list is pure.
 
-current_list -- is the list to be checked.
+current_dna_list -- is the list to be checked.
 classification_key -- is the attribute name for concept definition.
 
 return True if the list only contains promoter or non-promoter. Otherwise, return False. 

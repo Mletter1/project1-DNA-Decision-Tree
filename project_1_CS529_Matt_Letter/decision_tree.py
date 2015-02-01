@@ -19,7 +19,7 @@ class DecisionTree:
     dictionary_attribute_keys -- is the attributes list for the input data.
     found_attribute --  is the attributes list used so far for classification.
     parent_property -- is the catalog from the parent.
-    current_list  -- is the list of samples to separate.
+    current_dna_list  -- is the list of samples to separate.
     classification_key -- is the attribute name used for concept definition.
     compare_value -- is the p-value for testing.
     """
@@ -32,7 +32,7 @@ class DecisionTree:
         self.found_attribute = found_attribute
 
         #list of elements
-        self.current_list = current_list
+        self.current_dna_list = current_list
 
         #dictionary of the child elements for a node
         self.child_list = {}
@@ -71,7 +71,7 @@ class DecisionTree:
             ini_gain = self.parent_entropy
             cat_list = {}
 
-            for item in self.current_list:
+            for item in self.current_dna_list:
                 if item.get_value_at_attribute(attr) in cat_list.keys():
                     cat_list[item.get_value_at_attribute(attr)].append(item)
                 else:
@@ -79,7 +79,7 @@ class DecisionTree:
 
             for sublist in cat_list.values():
                 ini_gain -= (
-                    len(sublist) / len(self.current_list) * get_set_entropy(sublist, self.classification_key))
+                    len(sublist) / len(self.current_dna_list) * get_set_entropy(sublist, self.classification_key))
 
             if cal_chi_square(cat_list.values(), self.classification_key,
                                      self.compare_value) and ini_gain > self.cal_gain:
@@ -115,13 +115,13 @@ class DecisionTree:
     def run(self):
 
         # check if the sample is pure, if it is pure, just end it
-        result = calculate_stat(self.current_list, self.classification_key)
+        result = calculate_stat(self.current_dna_list, self.classification_key)
 
         #
         self.positive = result["positive"]
         self.negative = result["negative"]
 
-        if isPure(self.current_list, self.classification_key):
+        if is_single_class(self.current_dna_list, self.classification_key):
             return
 
         if not self.calculate_new_attribute():
@@ -174,7 +174,7 @@ class Validate:
 
     def check_pure(self):
         for item in self.result_map.values():
-            if isPure(item, self.concept_string) is False:
+            if is_single_class(item, self.concept_string) is False:
                 return False
 
         return True
@@ -373,24 +373,22 @@ def calculate_stat(cur_list, concept_string):
 
 
 """
-This method is used to check if the current sample list is pure.
-
-current_list -- is the list to be checked.
+current_dna_list -- is the list to be checked.
 classification_key -- is the attribute name of the classifier.
 
 return True iff the list only contains 1 class
 """
 
 
-def isPure(current_list, concept_string):
+def is_single_class(current_list_of_dna_strands, classification_key):
 
     #get the class of the first DNA strand in the list
-    temp_property = current_list[0].get_value_at_attribute(concept_string)
+    classification_of_first_dna_strand = current_list_of_dna_strands[0].get_value_at_attribute(classification_key)
 
-    for item in current_list:
-        if temp_property != item.get_value_at_attribute(concept_string):
+    #go through each dna strand looking for a miss-match
+    for dna_strand in current_list_of_dna_strands:
+        if classification_of_first_dna_strand != dna_strand.get_value_at_attribute(classification_key):
             return False
-
     return True
 
 

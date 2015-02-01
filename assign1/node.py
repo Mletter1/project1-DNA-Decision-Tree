@@ -14,7 +14,7 @@ class Node:
     dictionary_attribute_keys -- is the attributes list for the input data.
     found_attribute --  is the attributes list used so far for classification.
     parent_property -- is the catalog from the parent.
-    current_list
+    current_dna_list
     classification_key -- is the attribute name used for concept defination.
     """
     def __init__(self, attribute_list, found_attribute, parent_property, current_list, concept_string):
