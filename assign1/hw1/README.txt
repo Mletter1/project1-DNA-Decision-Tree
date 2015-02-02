@@ -23,13 +23,13 @@ Contents:
   validation.txt
 
 Instruction:
-  1. The main method for this application is main.py. If you want to run this
+  1. The main method for this application is main.py. If you want to run_build_tree this
 application, just type command as follow:
 	$python main.py <training_file> <validation_file> <confidence>
 where training_file is the name of file to train the algorithm and validation_file 
 is the name of file to validate the ID algorithm. confidence is the value used for 
 chi-square testing. You can input your own value here, like 0.95, 0.99 or even 0.
-  2. After you run the application, it will print the accuracy for your validation
+  2. After you run_build_tree the application, it will print the accuracy for your validation
 samples.
 
 Bugs:

@@ -45,7 +45,7 @@ VERSION
 """
 
 """
-run the program with training and validation text files and %confidence
+run_build_tree the program with training and validation text files and %confidence
 """
 
 
@@ -61,28 +61,28 @@ def run():
 
     #debug data
 
-    #run training
-    root = decision_tree.DecisionTree(parser.get_attribute_keys(), [], None, data, "isPromotor", sys.argv[3])
-    root.run()
-    print root.child_list
-    print root.positive
-    print root.negative
+    #run_build_tree training
+    tree_root = decision_tree.DecisionTree(parser.get_attribute_keys(), [], None, data, "isPromotor", sys.argv[3])
+    tree_root.run_build_tree()
+    print tree_root.child_list
+    print tree_root.positive
+    print tree_root.negative
 
 
     #print the data
-    printing = printer.ShowResult(root)
+    printing = printer.ShowResult(tree_root)
     printing.run()
 
 
     #validate the result
-    x = decision_tree.Validate("data/validation.txt", root, "isPromotor")
+    x = decision_tree.Validate("data/validation.txt", tree_root, "isPromotor")
     x.classification()
 
     #print accuracy
     print "The accuracy you got is {0}.".format(1 - x.cal_error())
 
     del parser
-    print '\nrun over'
+    print '\nrun_build_tree over'
     print "***********************************\n"
 
 

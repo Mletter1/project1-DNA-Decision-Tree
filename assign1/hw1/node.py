@@ -15,7 +15,7 @@ class Node:
     parent_property -- is the catalog from the parent.
     current_dna_list  -- is the list of samples to separate.
     classification_key -- is the attribute name used for concept definition.
-    compare_value -- is the p-value for testing.
+    confidence_interval -- is the p-value for testing.
     """
     def __init__(self, attribute_list, found_attribute, parent_property, current_list, concept_string, compare_value):
         self.attribute_list = attribute_list
@@ -78,7 +78,7 @@ class Node:
     """
     def runChildren(self):
         for child in self.child_list.values():
-            child.run()
+            child.run_build_tree()
 
     """
     This method is called to calculate this node.

@@ -16,8 +16,8 @@ class ParserClass:
     """
     def __init__(self, file_name="data/training.txt", number_of_attributes=58):
         print ("setting up file parser")
-        self.attributes = []
-        self.data_elements = []  # stores input as nodes
+        self.attributes = list()
+        self.data_elements = list()  # stores input as nodes
         self.file_buffer = open(file_name, "r+")
         self.attributeNum = number_of_attributes
 

@@ -84,7 +84,7 @@ class Node:
     """
     def runChildren(self):
         for child in self.child_list.values():
-            child.run()
+            child.run_build_tree()
 
     """
     This method is used to check if the current samples are pure

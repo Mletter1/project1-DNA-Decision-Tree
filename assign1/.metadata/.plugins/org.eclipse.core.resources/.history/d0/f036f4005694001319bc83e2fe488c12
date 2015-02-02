@@ -5,7 +5,7 @@ import reader
 import validation
 
 """
-This file is the main file for this project, if you run this file, you can get the decision tree printed.
+This file is the main file for this project, if you run_build_tree this file, you can get the decision tree printed.
 """
 #read the file first
 reading = reader.readFile("training.txt")
@@ -13,7 +13,7 @@ content = reading.read_file_content()
 
 #calculate the data
 root = node.Node(reading.get_attributes(), [], None, content, "isPromotor", 0.10)
-root.run()
+root.run_build_tree()
 
 x = validation.Validate("validation.txt", root, "isPromotor")
 

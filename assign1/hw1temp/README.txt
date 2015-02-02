@@ -23,7 +23,7 @@ Contents:
   validation.txt
 
 Instruction:
-  1. The main method for this application is main.py. If you want to run this
+  1. The main method for this application is main.py. If you want to run_build_tree this
 application, just type command as follow:
 	$python main.py <training_file> <validation_file> <confidence> <splitting_mode>
 where training_file is the name of file to train the algorithm and validation_file 
@@ -32,9 +32,9 @@ chi-square testing. You can input your own value here, like 0.95, 0.99 or even 0
 For splitting_mode, you should input 1 if you want to use misclassification method
 for decision tree building. Otherwise, input 2 if you want to use entropy calculation
 for attribute decision.
-  2. After you run the application, it will print the accuracy for your validation
+  2. After you run_build_tree the application, it will print the accuracy for your validation
 samples.
-  3. Besides, there is a runnable file, called runfile. You can just run as
+  3. Besides, there is a runnable file, called runfile. You can just run_build_tree as
   	$./runfile
 then you will get the result for different mode and different confidence interval 
 value. Then you can open result.txt to check the result value.

@@ -6,7 +6,7 @@ import validation
 import sys
 
 """
-This file is the main file for this project, if you run this file, you can get the decision tree printed.
+This file is the main file for this project, if you run_build_tree this file, you can get the decision tree printed.
 """
 #read the file first
 reading = reader.readFile(sys.argv[1])

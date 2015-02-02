@@ -168,7 +168,7 @@ This method is called to calculate chi-square value.
 Key arguments:
 child_list_to_test -- is the child list for calculation.
 classification_key -- is the name of attribute used for concept definition.
-compare_value -- is the p-value for testing.
+confidence_interval -- is the p-value for testing.
 
 return true if chi-square value is less than expected. Otherwise, return false.
 """
