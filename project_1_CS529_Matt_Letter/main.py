@@ -50,7 +50,7 @@ run_build_tree the program with training and validation text files and %confiden
 
 
 def run():
-    global options, args
+
     print "\n" + "***********************************"
     print 'Runnning main script\n'
     # build parser with training data
@@ -62,11 +62,12 @@ def run():
     #debug data
 
     #run_build_tree training
-    tree_root = decision_tree.DecisionTree(parser.get_attribute_keys(), [], None, data, "isPromotor", sys.argv[3])
+    tree_root = decision_tree.DecisionTree(parser.get_attribute_keys(), [], None, data, "isPromotor", 0)
     tree_root.run_build_tree()
-    print tree_root.child_list
+    #print tree_root.child_list
     print tree_root.positive
     print tree_root.negative
+    print args[2]
 
 
     #print the data
@@ -90,6 +91,7 @@ def run():
 determine running params
 """
 if __name__ == '__main__':
+    global options, args
     try:
         start_time = time.time()
         parser = optparse.OptionParser(formatter=optparse.TitledHelpFormatter(), usage=doc,

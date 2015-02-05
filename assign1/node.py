@@ -14,7 +14,7 @@ class Node:
     dictionary_attribute_keys -- is the attributes list for the input data.
     found_attribute --  is the attributes list used so far for classification.
     parent_property -- is the catalog from the parent.
-    current_dna_list
+    list_of_dna_strands_in_node
     classification_key -- is the attribute name used for concept defination.
     """
     def __init__(self, attribute_list, found_attribute, parent_property, current_list, concept_string):
@@ -84,7 +84,7 @@ class Node:
     """
     def runChildren(self):
         for child in self.child_list.values():
-            child.run_build_tree()
+            child.run()
 
     """
     This method is used to check if the current samples are pure

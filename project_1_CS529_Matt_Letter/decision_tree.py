@@ -19,7 +19,7 @@ class DecisionTree:
     dictionary_attribute_keys -- is the attributes list for the input data.
     found_attribute --  is the attributes list used so far for classification.
     parent_property -- is the catalog from the parent.
-    current_dna_list  -- is the list of samples to separate.
+    list_of_dna_strands_in_node  -- is the list of samples to separate.
     classification_key -- is the attribute name used for concept definition.
     confidence_interval -- is the p-value for testing.
     """
@@ -32,10 +32,10 @@ class DecisionTree:
         # this will be set to empty for the root node
         self.found_attribute = found_attribute
 
-        #list of elements
-        self.current_dna_list = current_list
+        # list of data dna elements
+        self.list_of_dna_strands_in_node = current_list
 
-        #dictionary of the child elements for a node
+        # dictionary of the child elements for a node
         self.child_list = {}
 
         #info about the parent node
@@ -45,15 +45,16 @@ class DecisionTree:
         #find entropy for this node
         self.parent_entropy = get_set_entropy(current_list, classification_key)
         self.pre_attribute = ""
-        self.cal_gain = 0
-        self.cat_list_final = {}
+        self.max_info_gain = 0
+        self.final_list_of_sorted_dna = {}
 
         #number of positive and negative values in this node
         self.positive = 0
         self.negative = 0
 
-        #
-        self.confidence_interval = confidence_interval
+        #ci
+        self.confidence_interval = 0.0 + confidence_interval
+
 
     """
     This method is used to calculate which attribute to choose.
@@ -62,33 +63,46 @@ class DecisionTree:
     """
 
     def calculate_new_attribute(self):
-        #get dna list
-        dna_list = list(set(self.dictionary_attribute_keys) - set(self.found_attribute))
-        dna_list.remove(self.classification_key)
+        # get dna list
+        bases_left = list(set(self.dictionary_attribute_keys) - set(self.found_attribute))
+        bases_left.remove(self.classification_key)
 
-        #we are at the bottom of the tree if there is no more dna
-        if len(dna_list) == 0:
+        # we are at the bottom of the tree if there is no more dna
+        if len(bases_left) == 0:
             return False
 
-        for dna_strand in dna_list:
+        #find info gain for each base
+        for position_of_base in bases_left:
+
+            #set base info gain to that of the parent node
             ini_gain = self.parent_entropy
-            cat_list = {}
+            child_average_gain = 0.0
 
-            for item in self.current_dna_list:
-                if item.get_value_at_attribute(dna_strand) in cat_list.keys():
-                    cat_list[item.get_value_at_attribute(dna_strand)].append(item)
+            #list of info gain of
+            bases_seen_at_this_position = {}
+
+            #grab each dna strand
+            for dna_strand in self.list_of_dna_strands_in_node:
+                if dna_strand.get_value_at_attribute(position_of_base) in bases_seen_at_this_position.keys():
+                    #grab list at key and append dna strand to it
+                    bases_seen_at_this_position[dna_strand.get_value_at_attribute(position_of_base)].append(dna_strand)
                 else:
-                    cat_list[item.get_value_at_attribute(dna_strand)] = [item]
+                    #create a list at key, of dna strands
+                    bases_seen_at_this_position[dna_strand.get_value_at_attribute(position_of_base)] = [dna_strand]
 
-            for sublist in cat_list.values():
-                ini_gain -= (
-                    len(sublist) / len(self.current_dna_list) * get_set_entropy(sublist, self.classification_key))
+            #calc info gain for this position
+            for base_dna_list in bases_seen_at_this_position.values():
+                child_average_gain += (get_percent(len(base_dna_list), len(self.list_of_dna_strands_in_node))
+                                       * get_set_entropy(base_dna_list, self.classification_key))
 
-            if cal_chi_square(cat_list.values(), self.classification_key, self.confidence_interval) \
-                    and ini_gain > self.cal_gain:
-                self.cal_gain = ini_gain
-                self.pre_attribute = dna_strand
-                self.cat_list_final = cat_list
+            #calc info gained by this split
+            ini_gain -= child_average_gain
+
+            if cal_chi_square(bases_seen_at_this_position.values(), self.classification_key,
+                              self.confidence_interval) and ini_gain > self.max_info_gain:
+                self.max_info_gain = ini_gain
+                self.pre_attribute = position_of_base
+                self.final_list_of_sorted_dna = bases_seen_at_this_position
 
         return True
 
@@ -97,11 +111,11 @@ class DecisionTree:
     """
 
     def preChildren(self):
-        for key in self.cat_list_final.keys():
+        for key in self.final_list_of_sorted_dna.keys():
             new_attribute_list = list(self.found_attribute)
             new_attribute_list.append(self.pre_attribute)
             self.child_list[key] = DecisionTree(self.dictionary_attribute_keys, new_attribute_list, key,
-                                                self.cat_list_final[key],
+                                                self.final_list_of_sorted_dna[key],
                                                 self.classification_key, self.confidence_interval)
 
     """
@@ -119,14 +133,15 @@ class DecisionTree:
     def run_build_tree(self):
 
         # check if the sample is pure, if it is pure, just end it
-        result = get_positive_and_negative_class_numbers_as_dictionary(self.current_dna_list, self.classification_key)
+        result = get_positive_and_negative_class_numbers_as_dictionary(self.list_of_dna_strands_in_node,
+                                                                       self.classification_key)
 
         #
         self.positive = result["positive"]
         self.negative = result["negative"]
 
         # return if there is only one class
-        if is_single_class(self.current_dna_list, self.classification_key):
+        if is_single_class(self.list_of_dna_strands_in_node, self.classification_key):
             return
 
         if not self.calculate_new_attribute():
@@ -277,9 +292,9 @@ class Validate:
 
         return result
 
-############################################################################################
+# ###########################################################################################
 
-############################################################################################
+# ###########################################################################################
 
 """
 This method is used to calculate percentage with numerator and denomator.
@@ -341,19 +356,19 @@ return the entropy associated with the list passed and attribute.
 """
 
 
-def get_set_entropy(list_to_cal, attribute):
-    if (attribute is None) or (list_to_cal is None):
+def get_set_entropy(list_of_dna_strands, attribute="isPromotor"):
+    if (attribute is None) or (list_of_dna_strands is None):
         return -1
 
-    num_list = {}
+    dictionary_ispromotor = {}
 
-    for item in list_to_cal:
-        if item.get_value_at_attribute(attribute) in num_list.keys():
-            num_list[item.get_value_at_attribute(attribute)] += 1
+    for dna_strand in list_of_dna_strands:
+        if dna_strand.get_value_at_attribute(attribute) in dictionary_ispromotor.keys():
+            dictionary_ispromotor[dna_strand.get_value_at_attribute(attribute)] += 1
         else:
-            num_list[item.get_value_at_attribute(attribute)] = 1
+            dictionary_ispromotor[dna_strand.get_value_at_attribute(attribute)] = 1
 
-    return get_entropy(num_list.values())
+    return get_entropy(dictionary_ispromotor.values())
 
 
 """
@@ -379,7 +394,7 @@ def get_positive_and_negative_class_numbers_as_dictionary(dna_list, classificati
 
 
 """
-current_dna_list -- is the list to be checked.
+list_of_dna_strands_in_node -- is the list to be checked.
 classification_key -- is the attribute name of the classifier.
 
 return True iff the list only contains 1 class
@@ -439,7 +454,6 @@ def cal_square(observed_value, expected_value):
     return (observed_value - expected_value) ** 2 / expected_value
 
 
-
 """
 This method is called to calculate chi-square value.
 
@@ -452,11 +466,11 @@ return true if chi-square value is less than expected. Otherwise, return false.
 """
 
 
-def cal_chi_square(child_nodes, classification_key, expected):
+def cal_chi_square(child_nodes, classification_key, confidence_value):
     ps = []  # number of positive dna
     ns = []  # number of negative dna
-    pps = []  # expected number of positive dna
-    nps = []  # expected number of negative dna
+    pps = []  # confidence_value number of positive dna
+    nps = []  # confidence_value number of negative dna
 
     #get each child node and grab number of positive and negative classes
     for child_node in child_nodes:
@@ -470,14 +484,15 @@ def cal_chi_square(child_nodes, classification_key, expected):
         pps.append(cal_expected_value(ps[i], ns[i], sum(ps), sum(ns), True))
         nps.append(cal_expected_value(ps[i], ns[i], sum(ps), sum(ns), False))
 
-    #get chi-square value.
+    #get chi-square value from table.
     chi_sqr_value = 0
     for i in range(len(ps)):
         chi_sqr_value += (cal_square(ps[i], pps[i]) + cal_square(ns[i], nps[i]))
 
     chi_result = sst.chi.pdf(chi_sqr_value, len(ps) - 1)
-
-    return chi_result < expected
+    print chi_result, confidence_value
+    print chi_result < confidence_value
+    return chi_result < confidence_value
 
 
 """

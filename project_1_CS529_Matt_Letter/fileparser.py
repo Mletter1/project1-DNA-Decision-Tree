@@ -40,7 +40,7 @@ class ParserClass:
             else:
                 self.attributes.append("pos{0}".format(i+1))
 
-        print self.attributes
+        #print self.attributes
         return self.attributes
 
 
