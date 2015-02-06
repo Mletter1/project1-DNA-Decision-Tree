@@ -38,7 +38,7 @@ class ParserClass:
             if i == self.attributeNum -1:
                 self.attributes.append("isPromotor")
             else:
-                self.attributes.append("pos{0}".format(i+1))
+                self.attributes.append("pos{0}".format(i))
 
         #print self.attributes
         return self.attributes

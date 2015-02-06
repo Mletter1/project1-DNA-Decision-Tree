@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import math
 import fileparser
-import scipy.stats as sst
+import scipy.stats
 
 __author__ = 'matthewletter'
 
@@ -38,14 +38,14 @@ class DecisionTree:
         # dictionary of the child elements for a node
         self.child_list = {}
 
-        #info about the parent node
+        # info about the parent node
         self.parent_property = parent_property
         self.classification_key = classification_key
 
-        #find entropy for this node
+        # find entropy for this node
         self.parent_entropy = get_set_entropy(current_list, classification_key)
         self.pre_attribute = ""
-        self.max_info_gain = 0
+        self.max_info_gain = 10.0
         self.final_list_of_sorted_dna = {}
 
         #number of positive and negative values in this node
@@ -63,7 +63,7 @@ class DecisionTree:
     """
 
     def calculate_new_attribute(self):
-        # get dna list
+        # get bases list
         bases_left = list(set(self.dictionary_attribute_keys) - set(self.found_attribute))
         bases_left.remove(self.classification_key)
 
@@ -71,12 +71,13 @@ class DecisionTree:
         if len(bases_left) == 0:
             return False
 
-        #find info gain for each base
+        # find info gain for each base
         for position_of_base in bases_left:
 
-            #set base info gain to that of the parent node
+            # set base info gain to that of the parent node
             ini_gain = self.parent_entropy
             child_average_gain = 0.0
+            error = 0
 
             #list of info gain of
             bases_seen_at_this_position = {}
@@ -98,12 +99,34 @@ class DecisionTree:
             #calc info gained by this split
             ini_gain -= child_average_gain
 
+            ps = list()
+            ns = list()
+
+            #get each child node and grab number of positive and negative classes
+            for child_node in bases_seen_at_this_position.values():
+                result = get_positive_and_negative_class_numbers_as_dictionary(child_node, self.classification_key)
+                #build up all the positives
+                ps.append(result["positive"])
+                #build up all the negatives
+                ns.append(result["negative"])
+                error += 1 - get_max_error(ps, ns)
+                #print error
+
+
+            #if this is all true we found a better node to split on info gain
+            # if cal_chi_square(bases_seen_at_this_position.values(), self.classification_key,
+            #                   self.confidence_interval) and ini_gain > self.max_info_gain:
+            #     self.max_info_gain = ini_gain
+            #     self.pre_attribute = position_of_base
+            #     self.final_list_of_sorted_dna = bases_seen_at_this_position
+
+            #missclass error
             if cal_chi_square(bases_seen_at_this_position.values(), self.classification_key,
-                              self.confidence_interval) and ini_gain > self.max_info_gain:
-                self.max_info_gain = ini_gain
+                              self.confidence_interval) and error < self.max_info_gain:
+                self.max_info_gain = error
                 self.pre_attribute = position_of_base
                 self.final_list_of_sorted_dna = bases_seen_at_this_position
-
+        print self.max_info_gain
         return True
 
     """
@@ -182,7 +205,7 @@ class Validate:
         self.reader = fileparser.ParserClass(file_name)
         self.reader.parse_file()
         self.root = root
-        self.result_map = {root: self.reader.data_elements}
+        self.tree = {root: self.reader.data_elements}
         self.sample_num = len(self.reader.data_elements)
         self.concept_string = concept_string
 
@@ -193,24 +216,22 @@ class Validate:
     """
 
     def check_pure(self):
-        for item in self.result_map.values():
+        for item in self.tree.values():
             if is_single_class(item, self.concept_string) is False:
                 return False
 
         return True
 
     """
-    This method is called to check which group should be used for classification.
-
-    return the node for classification.
+    get node for classification.
     """
 
-    def cal_classified_group(self):
+    def get_class_dna(self):
         temp_value = -1
         temp_key = None
 
-        for item in self.result_map.keys():
-            temp = get_set_entropy(self.result_map[item], self.concept_string)
+        for item in self.tree.keys():
+            temp = get_set_entropy(self.tree[item], self.concept_string)
 
             if temp > temp_value:
                 temp_value = temp
@@ -226,26 +247,26 @@ class Validate:
     """
 
     def classify_group(self, key):
-        value = self.result_map.pop(key)
+        value = self.tree.pop(key)
 
-        temp_map1 = {}
-        temp_map2 = {}
+        dictionary_1 = {}
+        dictionary_2 = {}
 
         for child in key.child_list.values():
-            temp_map1[child.parent_property] = []
-            temp_map2[child.parent_property] = child
+            dictionary_1[child.parent_property] = []
+            dictionary_2[child.parent_property] = child
 
         for item in value:
-            if item.get_value_at_attribute(key.pre_attribute) in temp_map1.keys():
-                temp_map1[item.get_value_at_attribute(key.pre_attribute)].append(item)
+            if item.get_value_at_attribute(key.pre_attribute) in dictionary_1.keys():
+                dictionary_1[item.get_value_at_attribute(key.pre_attribute)].append(item)
             else:
-                temp_map1[item.get_value_at_attribute(key.pre_attribute)] = [item]
-                temp_map2[item.get_value_at_attribute(key.pre_attribute)] = DecisionTree(None, None, None, None, None,
-                                                                                         None)
+                dictionary_1[item.get_value_at_attribute(key.pre_attribute)] = [item]
+                dictionary_2[item.get_value_at_attribute(key.pre_attribute)] = DecisionTree(None, None, None, None, None,
+                                                                                         0)
 
-        for item_key in temp_map1.keys():
-            if len(temp_map1[item_key]) > 0:
-                self.result_map[temp_map2[item_key]] = temp_map1[item_key]
+        for item_key in dictionary_1.keys():
+            if len(dictionary_1[item_key]) > 0:
+                self.tree[dictionary_2[item_key]] = dictionary_1[item_key]
 
     """
     This method is used to classify the validation samples
@@ -255,7 +276,7 @@ class Validate:
         if self.check_pure():
             return
 
-        key_to_cal = self.cal_classified_group()
+        key_to_cal = self.get_class_dna()
 
         if len(key_to_cal.child_list) == 0:
             return
@@ -287,14 +308,20 @@ class Validate:
     def cal_error(self):
         result = 0
 
-        for item in self.result_map.values():
+        for item in self.tree.values():
             result += (self.cal_node_error(item) * len(item) / self.sample_num)
 
-        return result
+        return (1-result)*100
+
 
 # ###########################################################################################
 
 # ###########################################################################################
+def get_max_error(ps, ns):
+    if sum(ps) > sum(ns):
+        return 1.0 * (sum(ps) / (sum(ps) + sum(ns)))
+    return 1.0 * (sum(ns) / (sum(ns) + sum(ps)))
+
 
 """
 This method is used to calculate percentage with numerator and denomator.
@@ -402,10 +429,10 @@ return True iff the list only contains 1 class
 
 
 def is_single_class(current_list_of_dna_strands, classification_key):
-    #get the class of the first DNA strand in the list
+    # get the class of the first DNA strand in the list
     classification_of_first_dna_strand = current_list_of_dna_strands[0].get_value_at_attribute(classification_key)
 
-    #go through each dna strand looking for a miss-match
+    # go through each dna strand looking for a miss-match
     for dna_strand in current_list_of_dna_strands:
         if classification_of_first_dna_strand != dna_strand.get_value_at_attribute(classification_key):
             return False
@@ -428,12 +455,12 @@ return the expected value to calculate.
 
 
 def cal_expected_value(p, n, ptotal, ntotal, isPromotor):
-    test_value = ntotal
+    instances_here = ntotal
 
     if isPromotor:
-        test_value = ptotal
+        instances_here = ptotal
 
-    return 1.0 * test_value * (p + n) / (ptotal + ntotal)
+    return 1.0 * instances_here * (p + n) / (ptotal + ntotal)
 
 
 """
@@ -449,9 +476,9 @@ return the value calculated.
 
 def cal_square(observed_value, expected_value):
     if expected_value == 0:
-        return 0
+        return 0.0
 
-    return (observed_value - expected_value) ** 2 / expected_value
+    return 0.0 + ((observed_value - expected_value) ** 2) / expected_value
 
 
 """
@@ -472,10 +499,10 @@ def cal_chi_square(child_nodes, classification_key, confidence_value):
     pps = []  # confidence_value number of positive dna
     nps = []  # confidence_value number of negative dna
 
-    #get each child node and grab number of positive and negative classes
+    # get each child node and grab number of positive and negative classes
     for child_node in child_nodes:
         result = get_positive_and_negative_class_numbers_as_dictionary(child_node, classification_key)
-        #build up all the positives
+        # build up all the positives
         ps.append(result["positive"])
         #build up all the negatives
         ns.append(result["negative"])
@@ -484,15 +511,21 @@ def cal_chi_square(child_nodes, classification_key, confidence_value):
         pps.append(cal_expected_value(ps[i], ns[i], sum(ps), sum(ns), True))
         nps.append(cal_expected_value(ps[i], ns[i], sum(ps), sum(ns), False))
 
-    #get chi-square value from table.
-    chi_sqr_value = 0
+    # get chi-square value from table.
+    chi_sqr_value = 0.0
     for i in range(len(ps)):
         chi_sqr_value += (cal_square(ps[i], pps[i]) + cal_square(ns[i], nps[i]))
 
-    chi_result = sst.chi.pdf(chi_sqr_value, len(ps) - 1)
-    print chi_result, confidence_value
-    print chi_result < confidence_value
-    return chi_result < confidence_value
+    chi_result = scipy.stats.chi.pdf(chi_sqr_value, len(ps) - 1)
+
+    # print chi_sqr_value
+    # print scipy.stats.chi2.ppf(confidence_value, 1)
+    # print confidence_value
+    # print chi_sqr_value >= scipy.stats.chi2.ppf(confidence_value, 1)
+    # print
+    if math.isnan(chi_result):
+        return False
+    return chi_sqr_value >= scipy.stats.chi2.ppf(confidence_value, 1)
 
 
 """

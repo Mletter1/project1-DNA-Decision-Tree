@@ -62,8 +62,9 @@ def run():
     #debug data
 
     #run_build_tree training
-    tree_root = decision_tree.DecisionTree(parser.get_attribute_keys(), [], None, data, "isPromotor", 0)
+    tree_root = decision_tree.DecisionTree(parser.get_attribute_keys(), [], None, data, "isPromotor", 0.0)
     tree_root.run_build_tree()
+
     #print tree_root.child_list
     print tree_root.positive
     print tree_root.negative
@@ -80,7 +81,7 @@ def run():
     x.classification()
 
     #print accuracy
-    print "The accuracy you got is {0}.".format(1 - x.cal_error())
+    print "The accuracy is {0}%.".format(x.cal_error())
 
     del parser
     print '\nrun_build_tree over'
