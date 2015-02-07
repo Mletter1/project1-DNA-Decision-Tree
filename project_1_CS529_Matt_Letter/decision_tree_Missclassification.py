@@ -328,11 +328,6 @@ def get_product(percentage):
 
 
 """
-This method is used to get entropy for specific numeric list.
-
-Key arguments:
-list_to_cal -- is the number list for entropy calculation.
-
 return the entropy for the number list.
 """
 
@@ -341,20 +336,14 @@ def get_entropy(list_to_cal):
     total = sum(list_to_cal)
     totalResult = 0.0
 
-    for i in list_to_cal:
-        totalResult += get_product(get_percent(i, total))
+    for iterater in list_to_cal:
+        totalResult += get_product(get_percent(iterater, total))
 
     return 0.0 - totalResult
 
 
 """
-This method is called to get subset entropy. If the attribute is null, return -1
-
-Key arguments:
-list_to_cal -- is the list of samples to calculate entropy.
-attribute -- is the attribute for the sample to calculate entropy.
-
-return the entropy associated with the list passed and attribute.
+get the entropy
 """
 
 

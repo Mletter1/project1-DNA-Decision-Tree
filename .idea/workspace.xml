@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db711326-614c-43a2-a697-71e117f5b257" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree_Missclassification.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree.py" afterPath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/fileparser.py" afterPath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/fileparser.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py" afterPath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/graph.xlsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree_Missclassification.py" afterPath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree_Missclassification.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="project1DecissonTrees.iws" />
@@ -24,7 +22,7 @@
     <SUITE FILE_PATH="coverage/project1DecissonTrees$fileparser.coverage" NAME="fileparser Coverage Results" MODIFIED="1422751524680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
     <SUITE FILE_PATH="coverage/project1DecissonTrees$dna.coverage" NAME="dna Coverage Results" MODIFIED="1422771904152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
     <SUITE FILE_PATH="coverage/project1DecissonTrees$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1423125476762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/assign1" />
-    <SUITE FILE_PATH="coverage/project1DecissonTrees$main__3_.coverage" NAME="main (3) Coverage Results" MODIFIED="1423278335464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
+    <SUITE FILE_PATH="coverage/project1DecissonTrees$main__3_.coverage" NAME="main (3) Coverage Results" MODIFIED="1423284674144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
     <SUITE FILE_PATH="coverage/project1DecissonTrees$main__2_.coverage" NAME="main (2) Coverage Results" MODIFIED="1423125040442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/assign1/hw1" />
     <SUITE FILE_PATH="coverage/project1DecissonTrees$decision_tree.coverage" NAME="decision_tree Coverage Results" MODIFIED="1423125482094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
   </component>
@@ -95,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="decision_tree.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="decision_tree.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="8.076923" vertical-offset="585" max-vertical-offset="8010">
-              <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.6122449" vertical-offset="1125" max-vertical-offset="8010">
+              <caret line="95" column="43" selection-start-line="95" selection-start-column="43" selection-end-line="95" selection-end-column="43" />
               <folding>
                 <element signature="e#18#29#0" expanded="true" />
               </folding>
@@ -107,11 +105,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="decision_tree_Missclassification.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="decision_tree_Missclassification.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree_Missclassification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.82653064" vertical-offset="1575" max-vertical-offset="7710">
-              <caret line="134" column="9" selection-start-line="134" selection-start-column="9" selection-end-line="134" selection-end-column="9" />
+            <state vertical-scroll-proportion="-14.423077" vertical-offset="4875" max-vertical-offset="7545">
+              <caret line="352" column="0" selection-start-line="352" selection-start-column="0" selection-end-line="352" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -145,8 +143,8 @@
         <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/dna.py" />
         <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/fileparser.py" />
         <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree.py" />
-        <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree_Missclassification.py" />
         <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py" />
+        <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree_Missclassification.py" />
       </list>
     </option>
   </component>
@@ -574,7 +572,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="947" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -586,7 +584,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997722" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38041002" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38041002" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1010,16 +1008,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="8.076923" vertical-offset="585" max-vertical-offset="8010">
-          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-          <folding>
-            <element signature="e#18#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.0" vertical-offset="1727" max-vertical-offset="2280">
@@ -1032,9 +1020,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree_Missclassification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.82653064" vertical-offset="1575" max-vertical-offset="7710">
-          <caret line="134" column="9" selection-start-line="134" selection-start-column="9" selection-end-line="134" selection-end-column="9" />
+        <state vertical-scroll-proportion="-14.423077" vertical-offset="4875" max-vertical-offset="7545">
+          <caret line="352" column="0" selection-start-line="352" selection-start-column="0" selection-end-line="352" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6122449" vertical-offset="1125" max-vertical-offset="8010">
+          <caret line="95" column="43" selection-start-line="95" selection-start-column="43" selection-end-line="95" selection-end-column="43" />
+          <folding>
+            <element signature="e#18#29#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
