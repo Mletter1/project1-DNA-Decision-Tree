@@ -33,7 +33,45 @@ Description:
 
 Instruction for operation:
 
-    file include in build:
+
+  execution eamples methods:
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  1:
+
+  python main.py <path to training data> <path to validation data> <confidence>
+
+  example:
+  python main.py data/training.txt data/validation.txt 0.99
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  2:optional
+
+  python main.py -v <path to training data> <path to validation data> <confidence>
+
+  example:
+
+  python main.py -v data/training.txt data/validation.txt 0.99
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  3:optional help
+
+  python main.py -h
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  2:optional get version
+
+  python main.py --version
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+file include in build:
       /data
       decision_tree.py
       decision_tree_MissClassification
@@ -45,29 +83,9 @@ Instruction for operation:
       the main entry point for this application is main.py.
       the program was write for python 2.x.
 
-  execution eamples methods:
-
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-  1:
-
-  python main.py <path to training data> <path to validation data> <confidence>
-
-  ex:
-  python main.py data/training.txt data/validation.txt 0.99
-
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-  2:optional
-
-  python main.py -v <path to training data> <path to validation data> <confidence>
-
-  python main.py -v data/training.txt data/validation.txt 0.99
-
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Bugs:
      unknown potential bug as there was no variation in classification with varied confidence.
      more validation test would be required to confirm or ignore this

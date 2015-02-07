@@ -2,47 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db711326-614c-43a2-a697-71e117f5b257" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/Hw1_description.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/Qui86.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/helper.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1.tar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1/README.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1/_project" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1/_pydevproject" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1/helper.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1/main.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1/mis_graph.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1/node.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1/reader.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1/sample.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1/training.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1/validation.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1/validation.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1temp/README.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1temp/_project" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1temp/_pydevproject" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1temp/graph.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1temp/helper.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1temp/main.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1temp/node.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1temp/reader.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1temp/result.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1temp/runfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1temp/sample.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1temp/training.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1temp/validation.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/hw1temp/validation.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/main.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/node.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/printer.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/reader.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/report.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/report.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/result" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/sample.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/training.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/validation.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assign1/validation.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/README.txt" afterPath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/README.txt" />
     </list>
     <ignored path="project1DecissonTrees.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,7 +20,7 @@
     <SUITE FILE_PATH="coverage/project1DecissonTrees$fileparser.coverage" NAME="fileparser Coverage Results" MODIFIED="1422751524680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
     <SUITE FILE_PATH="coverage/project1DecissonTrees$dna.coverage" NAME="dna Coverage Results" MODIFIED="1422771904152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
     <SUITE FILE_PATH="coverage/project1DecissonTrees$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1423125476762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/assign1" />
-    <SUITE FILE_PATH="coverage/project1DecissonTrees$main__3_.coverage" NAME="main (3) Coverage Results" MODIFIED="1423292034330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
+    <SUITE FILE_PATH="coverage/project1DecissonTrees$main__3_.coverage" NAME="main (3) Coverage Results" MODIFIED="1423293214750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
     <SUITE FILE_PATH="coverage/project1DecissonTrees$main__2_.coverage" NAME="main (2) Coverage Results" MODIFIED="1423125040442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/assign1/hw1" />
     <SUITE FILE_PATH="coverage/project1DecissonTrees$decision_tree.coverage" NAME="decision_tree Coverage Results" MODIFIED="1423125482094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
   </component>
@@ -79,7 +39,7 @@
       <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2160" max-vertical-offset="2790">
+            <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="2790">
               <caret line="169" column="14" selection-start-line="169" selection-start-column="14" selection-end-line="169" selection-end-column="14" />
               <folding>
                 <element signature="e#52#62#0" expanded="true" />
@@ -90,12 +50,9 @@
       </file>
       <file leaf-file-name="README.txt" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/README.txt">
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.7791411" vertical-offset="0" max-vertical-offset="1185">
-              <caret line="58" column="2" selection-start-line="58" selection-start-column="2" selection-end-line="58" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.50581396" vertical-offset="939" max-vertical-offset="1455">
+              <caret line="80" column="20" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -185,6 +142,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="project1DecissonTrees" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project1DecissonTrees" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project1DecissonTrees" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project_1_CS529_Matt_Letter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -316,7 +287,7 @@
       <module name="project1DecissonTrees" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py" />
-      <option name="PARAMETERS" value="-v data/training.txt data/validation.txt 0.99" />
+      <option name="PARAMETERS" value="v data/training.txt data/validation.txt 0.99" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
@@ -560,7 +531,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="947" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -568,11 +539,11 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32915717" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30357143" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30357143" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997722" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38041002" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38041002" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -793,16 +764,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2160" max-vertical-offset="2790">
-          <caret line="169" column="14" selection-start-line="169" selection-start-column="14" selection-end-line="169" selection-end-column="14" />
-          <folding>
-            <element signature="e#52#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assign1/hw1/.metadata/.plugins/org.python.pydev.shared_interactive_console/history.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="516">
@@ -811,13 +772,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="2790">
+          <caret line="169" column="14" selection-start-line="169" selection-start-column="14" selection-end-line="169" selection-end-column="14" />
+          <folding>
+            <element signature="e#52#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/README.txt">
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7791411" vertical-offset="0" max-vertical-offset="1185">
-          <caret line="58" column="2" selection-start-line="58" selection-start-column="2" selection-end-line="58" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.50581396" vertical-offset="939" max-vertical-offset="1455">
+          <caret line="80" column="20" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
           <folding />
         </state>
       </provider>
