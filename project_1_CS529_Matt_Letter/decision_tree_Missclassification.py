@@ -11,7 +11,7 @@ it also acts as a level for each treee.
 """
 
 
-class DecisionTree:
+class DecisionTreeMissclassification:
     """
     Keyword arguments:
     dictionary_attribute_keys input data.
@@ -43,7 +43,7 @@ class DecisionTree:
         # find entropy for this node
         self.parent_entropy = get_set_entropy(current_list, classification_key)
         self.pre_attribute = ""
-        self.max_info_gain = 0.0
+        self.max_info_gain = 30.0
         self.final_list_of_sorted_dna = {}
 
         # number of positive and negative values in this node
@@ -63,7 +63,7 @@ class DecisionTree:
         result = get_positive_and_negative_class_numbers_as_dictionary(self.list_of_dna_strands_in_node,
                                                                        self.classification_key)
 
-        # count positive and negative in node
+        #count positive and negative in node
         self.positive = result["positive"]
         self.negative = result["negative"]
 
@@ -96,8 +96,6 @@ class DecisionTree:
         for position_of_base in bases_left:
 
             # set base info gain to that of the parent node
-            ini_gain = self.parent_entropy
-            child_average_gain = 0.0
             error = 0
 
             # list of info gain of
@@ -106,40 +104,35 @@ class DecisionTree:
             # grab each dna strand
             for dna_strand in self.list_of_dna_strands_in_node:
                 if dna_strand.get_value_at_attribute(position_of_base) in bases_seen_at_this_position.keys():
-                    # grab list at key and append dna strand to it
+                    #grab list at key and append dna strand to it
                     bases_seen_at_this_position[dna_strand.get_value_at_attribute(position_of_base)].append(dna_strand)
                 else:
-                    # create a list at key, of dna strands
+                    #create a list at key, of dna strands
                     bases_seen_at_this_position[dna_strand.get_value_at_attribute(position_of_base)] = [dna_strand]
 
-            # calc info gain for this position
-            for base_dna_list in bases_seen_at_this_position.values():
-                child_average_gain += (get_percent(len(base_dna_list), len(self.list_of_dna_strands_in_node))
-                                       * get_set_entropy(base_dna_list, self.classification_key))
 
-            #calc info gained by this split
-            ini_gain -= child_average_gain
+            #uncomment for missclass error
+            ps = list()
+            ns = list()
+
+            #get each child node and grab number of positive and negative classes
+            for child_node in bases_seen_at_this_position.values():
+                result = get_positive_and_negative_class_numbers_as_dictionary(child_node, self.classification_key)
+                #build up all the positives
+                ps.append(result["positive"])
+                #build up all the negatives
+                ns.append(result["negative"])
+                error += 1 - get_max_error(ps, ns)
+                #print error
 
 
-            # #uncomment for missclass error
-            # ps = list()
-            # ns = list()
             #
-            # #get each child node and grab number of positive and negative classes
-            # for child_node in bases_seen_at_this_position.values():
-            #     result = get_positive_and_negative_class_numbers_as_dictionary(child_node, self.classification_key)
-            #     #build up all the positives
-            #     ps.append(result["positive"])
-            #     #build up all the negatives
-            #     ns.append(result["negative"])
-            #     error += 1 - get_max_error(ps, ns)
-            #     #print error
-
             if cal_chi_square(bases_seen_at_this_position.values(), self.classification_key,
-                              self.confidence_interval) and ini_gain > self.max_info_gain:
-                self.max_info_gain = ini_gain
+                              self.confidence_interval) and error < self.max_info_gain:
+                self.max_info_gain = error
                 self.pre_attribute = position_of_base
                 self.final_list_of_sorted_dna = bases_seen_at_this_position
+        #print self.max_info_gain
         return True
 
     """
@@ -158,12 +151,12 @@ class DecisionTree:
 
         # for each base
         for splitting_base in self.final_list_of_sorted_dna.keys():
-            # populate our new list
+            #populate our new list
             new_attribute_list = list(self.found_attribute)
             new_attribute_list.append(self.pre_attribute)
 
             #build new node
-            self.child_list[splitting_base] = DecisionTree(self.dictionary_attribute_keys, new_attribute_list,
+            self.child_list[splitting_base] = DecisionTreeMissclassification(self.dictionary_attribute_keys, new_attribute_list,
                                                            splitting_base,
                                                            self.final_list_of_sorted_dna[splitting_base],
                                                            self.classification_key, self.confidence_interval)
@@ -175,17 +168,7 @@ class DecisionTree:
     def __del__(self):
         # print ("deconstructing buffer")
         pass
-
-# ###########################################################################################
-
-# ###########################################################################################
-
-"""
-takes validations data and built dc tree and outputs the accuracy
-"""
-
-
-class Validate:
+class ValidateMissclassification:
     """
     file_name validation file
     root_node root_node node of the tree from dc
@@ -251,8 +234,8 @@ class Validate:
                 dictionary_1[dna.get_value_at_attribute(key.pre_attribute)].append(dna)
             else:
                 dictionary_1[dna.get_value_at_attribute(key.pre_attribute)] = [dna]
-                dictionary_2[dna.get_value_at_attribute(key.pre_attribute)] = DecisionTree(None, None, None, None,
-                                                                                           None, None)
+                dictionary_2[dna.get_value_at_attribute(key.pre_attribute)] = DecisionTreeMissclassification(None, None, None, None,
+                                                                                           None, 0)
 
         #update items
         for item_key in dictionary_1.keys():
@@ -305,7 +288,6 @@ class Validate:
                 self.cal_node_error(dna_list_for_node) * len(dna_list_for_node) / self.number_of_samples)
 
         return (1 - accumulated_error) * 100
-
 
 # ###########################################################################################
 

@@ -11,11 +11,11 @@ A utilities class used for importing DNA files and objectafying them
 
 class ParserClass:
     """Constructs a file_buffer
-    builds data elements to be filled once subsequent methods are called
+    builds data elements into dna strands
 
     """
     def __init__(self, file_name="data/training.txt", number_of_attributes=58):
-        print ("setting up file parser")
+        # print ("setting up file parser")
         self.attributes = list()
         self.data_elements = list()  # stores input as nodes
         self.file_buffer = open(file_name, "r+")
