@@ -7,7 +7,7 @@ import optparse
 import time
 import fileparser
 import decision_tree
-import printer
+import output_tree
 import decision_tree_Missclassification
 
 doc = """
@@ -79,11 +79,11 @@ def run():
     print
     print "info gain tree"
     #print the data
-    printing = printer.ShowResult(tree_information_gain)
+    printing = output_tree.ShowResult(tree_information_gain)
     printing.run()
     print
     print "misclassification error tree"
-    printing = printer.ShowResult(tree_missclassification)
+    printing = output_tree.ShowResult(tree_missclassification)
     printing.run()
     print
     print
@@ -91,19 +91,53 @@ def run():
     #validate the result for misclassification
     x = decision_tree_Missclassification.ValidateMissclassification("data/validation.txt", tree_missclassification,
                                                                     "Promoter")
-    x.classification()
+    x.run()
     print "The accuracy for misclassification error is {0}%.".format(x.calculate_full_error_of_run())
 
 
     #validate the result for info gain
     y = decision_tree.Validate("data/validation.txt", tree_information_gain, "Promoter")
-    y.classification()
+    y.run()
     #print accuracy
     print "The accuracy for information gain is {0}%.".format(y.calculate_full_error_of_run())
 
     del parser
     print '\nrun_build_tree over'
     print "***********************************\n"
+
+def run_quite():
+    parser = fileparser.ParserClass("data/training.txt", 58)
+
+    # parse and objectafy training data
+    data = parser.parse_file()
+
+    # debug data
+
+    #run_build_tree training
+    tree_information_gain = decision_tree.DecisionTree(parser.get_attribute_keys(), [], None, data, "Promoter",
+                                                       float(args[2]))
+    tree_information_gain.run_build_tree()
+
+    #run_build_tree training
+    tree_missclassification = decision_tree_Missclassification.DecisionTreeMissclassification(
+        parser.get_attribute_keys(), [], None, data, "Promoter", float(args[2]))
+    tree_missclassification.run_build_tree()
+
+    #validate the result for misclassification
+    x = decision_tree_Missclassification.ValidateMissclassification("data/validation.txt", tree_missclassification,
+                                                                    "Promoter")
+    x.run()
+    print "The accuracy for misclassification error is {0}%.".format(x.calculate_full_error_of_run())
+
+
+    #validate the result for info gain
+    y = decision_tree.Validate("data/validation.txt", tree_information_gain, "Promoter")
+    y.run()
+    #print accuracy
+    print "The accuracy for information gain is {0}%.".format(y.calculate_full_error_of_run())
+
+    del parser
+
 
 
 """
@@ -132,8 +166,8 @@ if __name__ == '__main__':
         elif len(args) < 1:
             parser.error('missing argument <training> <validation> <%val>')
         else:
-            run()
-        # smoth exit if no exceptions are thrown
+            run_quite()
+        # smo0th exit if no exceptions are thrown
         sys.exit(0)
 
     except KeyboardInterrupt, e:  # Ctrl-C

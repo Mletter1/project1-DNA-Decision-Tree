@@ -12,7 +12,7 @@ class Node:
     Constructor
     Keyword arguments:
     dictionary_attribute_keys -- is the attributes list for the input data.
-    found_attribute --  is the attributes list used so far for classification.
+    found_attribute --  is the attributes list used so far for run.
     parent_property -- is the catalog from the parent.
     list_of_dna_strands_in_node
     classification_key -- is the attribute name used for concept defination.

@@ -127,7 +127,7 @@ class DecisionTreeMissclassification:
 
 
             #
-            if cal_chi_square(bases_seen_at_this_position.values(), self.classification_key,
+            if chi_squared_test(bases_seen_at_this_position.values(), self.classification_key,
                               self.confidence_interval) and error < self.max_info_gain:
                 self.max_info_gain = error
                 self.pre_attribute = position_of_base
@@ -187,36 +187,37 @@ class ValidateMissclassification:
     return true if all + or -. Otherwise, return false.
     """
 
-    def check_pure(self):
-        for item in self.tree.values():
-            if is_single_class(item, self.classification_string_for_dictionary) is False:
+    def one_class(self):
+        #get class and see if its different from previous
+        for current_class in self.tree.values():
+            #return false if they dont match
+            if is_single_class(current_class, self.classification_string_for_dictionary) is False:
                 return False
 
         return True
 
     """
-    get node for classification.
+    get node for run.
     """
 
     def get_class_dna(self):
-        temp_value = -1
-        temp_key = None
-
-        for item in self.tree.keys():
-            temp = get_set_entropy(self.tree[item], self.classification_string_for_dictionary)
-
-            if temp > temp_value:
-                temp_value = temp
-                temp_key = item
-
-        return temp_key
+        max_value = -1
+        max_key = None
+        #get current key from tree keys
+        for current_key in self.tree.keys():
+            current_entropy = get_set_entropy(self.tree[current_key], self.classification_string_for_dictionary)
+            #current value is high so swap
+            if current_entropy > max_value:
+                max_value = current_entropy
+                max_key = current_key
+        return max_key
 
     """
     classify group.
     key is the node used to classify the group
     """
 
-    def classify_group(self, key):
+    def classify_dna_group(self, key):
         node_dna_list = self.tree.pop(key)
 
         # build 2 dictionarys for temp values
@@ -246,22 +247,20 @@ class ValidateMissclassification:
     classify the validation samples
     """
 
-    def classification(self):
-        if self.check_pure():
+    def run(self):
+        if self.one_class():
             return
 
-        key_to_cal = self.get_class_dna()
-
-        if len(key_to_cal.child_list) == 0:
+        key = self.get_class_dna()
+        node_num = len(key.child_list)
+        if node_num == 0:
             return
 
-        self.classify_group(key_to_cal)
+        self.classify_dna_group(key)
 
-        self.classification()
+        self.run()
 
     """
-    calculate error for one node.
-    cal_list node list to calculate error rate.
     return error for node.
     """
 
@@ -272,9 +271,7 @@ class ValidateMissclassification:
         return 1 - (1.0 * max(result.values()) / len(cal_list))
 
     """
-    calculate error information.
-
-    return the error rate for validation samples.
+    return the error rate for validation dna.
     """
 
     def calculate_full_error_of_run(self):
@@ -292,6 +289,48 @@ class ValidateMissclassification:
 # ###########################################################################################
 
 # ###########################################################################################
+"""
+return true if chi-square value is less than expected. Otherwise, return false.
+"""
+
+
+def chi_squared_test(child_nodes, classification_key, confidence_value):
+    positive_dna_num = []
+    negative_dna_num = []
+    list_of_pos_s = []
+    list_of_neg_s = []
+
+    # get each child node and grab number of positive and negative classes
+    for child_node in child_nodes:
+        result = get_positive_and_negative_class_numbers_as_dictionary(child_node, classification_key)
+        # build up all the positives
+        positive_dna_num.append(result["positive"])
+        # build up all the negatives
+        negative_dna_num.append(result["negative"])
+
+    for i in range(len(positive_dna_num)):
+        list_of_pos_s.append(get_expected(positive_dna_num[i], negative_dna_num[i], sum(positive_dna_num), sum(negative_dna_num), True))
+        list_of_neg_s.append(get_expected(positive_dna_num[i], negative_dna_num[i], sum(positive_dna_num), sum(negative_dna_num), False))
+
+    # get chi-square value from table.
+    chi_sqr_value = 0.0
+    for i in range(len(positive_dna_num)):
+        chi_sqr_value += (get_square(positive_dna_num[i], list_of_pos_s[i]) + get_square(negative_dna_num[i], list_of_neg_s[i]))
+
+    # chi_result = scipy.stats.chi.pdf(chi_sqr_value, len(positive_dna_num) - 1)
+
+    # print chi_sqr_value
+    # print scipy.stats.chi2.ppf(confidence_value, 1)
+    # print confidence_value
+    # print chi_sqr_value >= scipy.stats.chi2.ppf(confidence_value, 1)
+    # print
+    if math.isnan(chi_sqr_value):
+        return False
+    return chi_sqr_value >= scipy.stats.chi2.ppf(confidence_value, 1)
+
+"""
+get max of positve negative
+"""
 def get_max_error(ps, ns):
     if sum(ps) > sum(ns):
         return 1.0 * (sum(ps) / (sum(ps) + sum(ns)))
@@ -299,32 +338,23 @@ def get_max_error(ps, ns):
 
 
 """
-This method is used to calculate percentage with numerator and denomator.
-
-Key arguments:
-numerator -- is the numerator.
-denomator -- is the denomator.
-
-return a floating percentage number associated to the input.
+return a floating percentage
 """
 
 
 def get_percent(numerator, denomator):
-    return 1.0 * numerator / denomator
+    return_value = 1.0 * numerator / denomator
+    return return_value
 
 
 """
-This method is used to get product for entropy calculation using percentage provided.
-
-Key arguments:
-percentage -- is the percentage used for product calculation.
-
-return the product used for entropy calculation.
+return the product.
 """
 
 
-def get_product(percentage):
-    return 1.0 * percentage * math.log(percentage, 2)
+def get_product(perc):
+    return_value = 1.0 * perc * math.log(perc, 2)
+    return return_value
 
 
 """
@@ -332,18 +362,18 @@ return the entropy for the number list.
 """
 
 
-def get_entropy(list_to_cal):
-    total = sum(list_to_cal)
-    totalResult = 0.0
+def get_entropy(entropy_list):
+    num_of_items = sum(entropy_list)
+    return_sum_entropy = 0.0
 
-    for iterater in list_to_cal:
-        totalResult += get_product(get_percent(iterater, total))
+    for i in entropy_list:
+        return_sum_entropy += get_product(get_percent(i, num_of_items))
 
-    return 0.0 - totalResult
+    return 0.0 - return_sum_entropy
 
 
 """
-get the entropy
+return the entropy of set.
 """
 
 
@@ -363,12 +393,7 @@ def get_set_entropy(list_of_dna_strands, attribute="Promoter"):
 
 
 """
-Calculate the positive and negative sample numbers.
-
-cur_list -- is the list to check promoter and non-promoter numbers.
-classification_key -- is the attribute name for concept definition.
-
-return a dictionary containing promotor and non-promotor numbers.
+return a dictionary containing + - #numbers.
 """
 
 
@@ -385,9 +410,6 @@ def get_positive_and_negative_class_numbers_as_dictionary(dna_list, classificati
 
 
 """
-list_of_dna_strands_in_node -- is the list to be checked.
-classification_key -- is the attribute name of the classifier.
-
 return True iff the list only contains 1 class
 """
 
@@ -404,97 +426,33 @@ def is_single_class(current_list_of_dna_strands, classification_key):
 
 
 """
-This method is used to calculate expected value for specific observed value.
-
-Key arguments:
-p -- is the number of promoters for the group to calculate.
-n -- is the number of non-promoters for the group to calculate.
-ptotal -- is the total number of promoters in the list to be classified.
-ntotal -- is the total number of non-promoters in the list to be classified.
-isPromotor -- is true if expected promoter number is calculated. Otherwise, false if expected
-non-promoter number is calculated.
-
-return the expected value to calculate.
+return the expected value
 """
 
 
-def cal_expected_value(p, n, ptotal, ntotal, isPromotor):
-    instances_here = ntotal
+def get_expected(pistive_number, negative_number, total_positive, total_negative, bol_is_this_dna_a_promoter):
+    total = total_negative
 
-    if isPromotor:
-        instances_here = ptotal
+    if bol_is_this_dna_a_promoter:
+        total = total_positive
 
-    return 1.0 * instances_here * (p + n) / (ptotal + ntotal)
+    return 1.0 * total * (pistive_number + negative_number) / (total_positive + total_negative)
 
 
 """
-This method is called to calculate (observer-expected)^2/expected value.
-
-Key arguments:
-observed_value
-expected_value
-
-return the value calculated.
+return square value
 """
 
 
-def cal_square(observed_value, expected_value):
+def get_square(observed_value, expected_value):
     if expected_value == 0:
         return 0.0
 
     return 0.0 + ((observed_value - expected_value) ** 2) / expected_value
 
-
-"""
-This method is called to calculate chi-square value.
-
-Key arguments:
-child_list_to_test -- is the child list for calculation.
-classification_key -- is the name of attribute used for concept definition.
-confidence_interval -- is the p-value for testing.
-
-return true if chi-square value is less than expected. Otherwise, return false.
-"""
-
-
-def cal_chi_square(child_nodes, classification_key, confidence_value):
-    ps = []  # number of positive dna
-    ns = []  # number of negative dna
-    pps = []  # confidence_value number of positive dna
-    nps = []  # confidence_value number of negative dna
-
-    # get each child node and grab number of positive and negative classes
-    for child_node in child_nodes:
-        result = get_positive_and_negative_class_numbers_as_dictionary(child_node, classification_key)
-        # build up all the positives
-        ps.append(result["positive"])
-        # build up all the negatives
-        ns.append(result["negative"])
-
-    for i in range(len(ps)):
-        pps.append(cal_expected_value(ps[i], ns[i], sum(ps), sum(ns), True))
-        nps.append(cal_expected_value(ps[i], ns[i], sum(ps), sum(ns), False))
-
-    # get chi-square value from table.
-    chi_sqr_value = 0.0
-    for i in range(len(ps)):
-        chi_sqr_value += (cal_square(ps[i], pps[i]) + cal_square(ns[i], nps[i]))
-
-    # chi_result = scipy.stats.chi.pdf(chi_sqr_value, len(ps) - 1)
-
-    # print chi_sqr_value
-    # print scipy.stats.chi2.ppf(confidence_value, 1)
-    # print confidence_value
-    # print chi_sqr_value >= scipy.stats.chi2.ppf(confidence_value, 1)
-    # print
-    if math.isnan(chi_sqr_value):
-        return False
-    return chi_sqr_value >= scipy.stats.chi2.ppf(confidence_value, 1)
-
-
 """
 used for testing
 """
 if __name__ == "__main__":
-    obj = DecisionTree()
+    obj = DecisionTreeMissclassification()
     del obj

@@ -11,9 +11,9 @@ A utilities class used for importing DNA files and objectafying them
 
 class ParserClass:
     """Constructs a file_buffer
-    builds data elements into dna strands
-
+    builds txt data elements into dna strands
     """
+
     def __init__(self, file_name="data/training.txt", number_of_attributes=58):
         # print ("setting up file parser")
         self.attributes = list()
@@ -26,21 +26,23 @@ class ParserClass:
     """
 
     def __del__(self):
-        #print ("deconstructing buffer")
+        # print ("deconstructing buffer")
         self.file_buffer.close()
+
     """
     initialize the attributes
 
     return list of attributes
     """
+
     def build_attributes(self):
         for i in range(self.attributeNum):
-            if i == self.attributeNum -1:
+            if i == self.attributeNum - 1:
                 self.attributes.append("Promoter")
             else:
                 self.attributes.append("Posistion-{0}".format(i))
 
-        #print self.attributes
+        # print self.attributes
         return self.attributes
 
 
@@ -49,11 +51,12 @@ class ParserClass:
 
     return list of samples.
     """
+
     def parse_file(self):
         self.build_attributes()
         # read line from file
         for line in self.file_buffer:
-            #reset the list every time
+            # reset the list every time
             result = []
             for word in line.split():
                 #print word
@@ -64,13 +67,14 @@ class ParserClass:
             dna_strand.build_dna_dictionary(list(result))
             self.data_elements.append(dna_strand)
 
-        #debug
+        # debug
         #print self.data_elements.pop(1)
         return self.data_elements
 
     """
     return attribute list.
     """
+
     def get_attribute_keys(self):
         return self.attributes
 

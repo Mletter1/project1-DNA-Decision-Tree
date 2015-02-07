@@ -17,7 +17,7 @@
 		<list key="findhistory">
 			<item value="print"/>
 			<item value="Node"/>
-			<item value="check_pure"/>
+			<item value="one_class"/>
 			<item value="chi"/>
 			<item value="pre_attribute"/>
 			<item value="child_list"/>

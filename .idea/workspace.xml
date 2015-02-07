@@ -2,8 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db711326-614c-43a2-a697-71e117f5b257" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/graph.xlsx" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/printer.py" afterPath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/output_tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/bd/10ffe1e7109500131d11ea8defa00f14" afterPath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/bd/10ffe1e7109500131d11ea8defa00f14" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/eb/204d5eb90f9500131d11ea8defa00f14" afterPath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/eb/204d5eb90f9500131d11ea8defa00f14" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/c9/209a7404119500131d11ea8defa00f14" afterPath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/c9/209a7404119500131d11ea8defa00f14" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/e0/20f291da109500131d11ea8defa00f14" afterPath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/e0/20f291da109500131d11ea8defa00f14" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/e9/30f323a1109500131d11ea8defa00f14" afterPath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/e9/30f323a1109500131d11ea8defa00f14" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/52/500392c70f9500131d11ea8defa00f14" afterPath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/52/500392c70f9500131d11ea8defa00f14" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/77/50e37a26109500131d11ea8defa00f14" afterPath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/77/50e37a26109500131d11ea8defa00f14" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/47/7044d50d119500131d11ea8defa00f14" afterPath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/47/7044d50d119500131d11ea8defa00f14" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/fe/7046b274119500131d11ea8defa00f14" afterPath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/fe/7046b274119500131d11ea8defa00f14" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/94/70ec608a109500131d11ea8defa00f14" afterPath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/94/70ec608a109500131d11ea8defa00f14" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/18/80223fed109500131d11ea8defa00f14" afterPath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/18/80223fed109500131d11ea8defa00f14" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/1/a0ba6c1b119500131d11ea8defa00f14" afterPath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/1/a0ba6c1b119500131d11ea8defa00f14" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree.py" afterPath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree_Missclassification.py" afterPath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree_Missclassification.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.ui.workbench.texteditor/dialog_settings.xml" afterPath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.ui.workbench.texteditor/dialog_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/dna.py" afterPath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/dna.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/3/e0029bf20f9500131d11ea8defa00f14" afterPath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/3/e0029bf20f9500131d11ea8defa00f14" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/65/e03ea965119500131d11ea8defa00f14" afterPath="$PROJECT_DIR$/assign1/.metadata/.plugins/org.eclipse.core.resources/.history/65/e03ea965119500131d11ea8defa00f14" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/fileparser.py" afterPath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/fileparser.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py" afterPath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/node.py" afterPath="$PROJECT_DIR$/assign1/node.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/hw1/node.py" afterPath="$PROJECT_DIR$/assign1/hw1/node.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/hw1temp/node.py" afterPath="$PROJECT_DIR$/assign1/hw1temp/node.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/hw1/validation.py" afterPath="$PROJECT_DIR$/assign1/hw1/validation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/hw1temp/validation.py" afterPath="$PROJECT_DIR$/assign1/hw1temp/validation.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="project1DecissonTrees.iws" />
@@ -22,7 +46,7 @@
     <SUITE FILE_PATH="coverage/project1DecissonTrees$fileparser.coverage" NAME="fileparser Coverage Results" MODIFIED="1422751524680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
     <SUITE FILE_PATH="coverage/project1DecissonTrees$dna.coverage" NAME="dna Coverage Results" MODIFIED="1422771904152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
     <SUITE FILE_PATH="coverage/project1DecissonTrees$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1423125476762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/assign1" />
-    <SUITE FILE_PATH="coverage/project1DecissonTrees$main__3_.coverage" NAME="main (3) Coverage Results" MODIFIED="1423284674144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
+    <SUITE FILE_PATH="coverage/project1DecissonTrees$main__3_.coverage" NAME="main (3) Coverage Results" MODIFIED="1423291784119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
     <SUITE FILE_PATH="coverage/project1DecissonTrees$main__2_.coverage" NAME="main (2) Coverage Results" MODIFIED="1423125040442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/assign1/hw1" />
     <SUITE FILE_PATH="coverage/project1DecissonTrees$decision_tree.coverage" NAME="decision_tree Coverage Results" MODIFIED="1423125482094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
   </component>
@@ -38,11 +62,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.0" vertical-offset="1727" max-vertical-offset="2280">
-              <caret line="129" column="43" selection-start-line="129" selection-start-column="43" selection-end-line="129" selection-end-column="43" />
+            <state vertical-scroll-proportion="5.1734695" vertical-offset="0" max-vertical-offset="2790">
+              <caret line="169" column="14" selection-start-line="169" selection-start-column="14" selection-end-line="169" selection-end-column="14" />
               <folding>
                 <element signature="e#52#62#0" expanded="true" />
               </folding>
@@ -73,31 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dna.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/dna.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="818" max-vertical-offset="1335">
-              <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fileparser.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/fileparser.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
-              <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="decision_tree.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="decision_tree.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6122449" vertical-offset="1125" max-vertical-offset="8010">
-              <caret line="95" column="43" selection-start-line="95" selection-start-column="43" selection-end-line="95" selection-end-column="43" />
+            <state vertical-scroll-proportion="-62.23077" vertical-offset="2537" max-vertical-offset="7320">
+              <caret line="277" column="13" selection-start-line="277" selection-start-column="13" selection-end-line="277" selection-end-column="13" />
               <folding>
                 <element signature="e#18#29#0" expanded="true" />
               </folding>
@@ -105,11 +109,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="output_tree.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/output_tree.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.192307" vertical-offset="65" max-vertical-offset="885">
+              <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="decision_tree_Missclassification.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree_Missclassification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.423077" vertical-offset="4875" max-vertical-offset="7545">
-              <caret line="352" column="0" selection-start-line="352" selection-start-column="0" selection-end-line="352" selection-end-column="0" />
+            <state vertical-scroll-proportion="-91.15385" vertical-offset="0" max-vertical-offset="6915">
+              <caret line="160" column="59" selection-start-line="160" selection-start-column="59" selection-end-line="160" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -135,16 +149,17 @@
         <option value="$PROJECT_DIR$/assign1/sample.py" />
         <option value="$PROJECT_DIR$/assign1/hw1/reader.py" />
         <option value="$PROJECT_DIR$/assign1/hw1/helper.py" />
-        <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/printer.py" />
         <option value="$PROJECT_DIR$/assign1/node.py" />
         <option value="$PROJECT_DIR$/assign1/hw1/node.py" />
         <option value="$PROJECT_DIR$/assign1/hw1/main.py" />
         <option value="$PROJECT_DIR$/assign1/main.py" />
         <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/dna.py" />
         <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/fileparser.py" />
+        <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/printer.py" />
         <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree.py" />
-        <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py" />
         <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree_Missclassification.py" />
+        <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/output_tree.py" />
+        <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py" />
       </list>
     </option>
   </component>
@@ -328,7 +343,7 @@
       <module name="project1DecissonTrees" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py" />
-      <option name="PARAMETERS" value="-v data/training.txt data/validation.txt 0.99" />
+      <option name="PARAMETERS" value="data/training.txt data/validation.txt 0.99" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
@@ -571,8 +586,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="947" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="23" width="1680" height="947" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -924,13 +939,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/printer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.025641026" vertical-offset="195" max-vertical-offset="780">
-          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assign1/result">
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
@@ -984,6 +992,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/dna.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6104651" vertical-offset="795" max-vertical-offset="1335">
+          <caret line="74" column="19" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/fileparser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.122093" vertical-offset="0" max-vertical-offset="1380">
+          <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assign1/hw1/node.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1034" max-vertical-offset="1605">
@@ -992,46 +1016,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/dna.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="818" max-vertical-offset="1335">
-          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/fileparser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
-          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.0" vertical-offset="1727" max-vertical-offset="2280">
-          <caret line="129" column="43" selection-start-line="129" selection-start-column="43" selection-end-line="129" selection-end-column="43" />
-          <folding>
-            <element signature="e#52#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree_Missclassification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.423077" vertical-offset="4875" max-vertical-offset="7545">
-          <caret line="352" column="0" selection-start-line="352" selection-start-column="0" selection-end-line="352" selection-end-column="0" />
+        <state vertical-scroll-proportion="-91.15385" vertical-offset="0" max-vertical-offset="6915">
+          <caret line="160" column="59" selection-start-line="160" selection-start-column="59" selection-end-line="160" selection-end-column="59" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6122449" vertical-offset="1125" max-vertical-offset="8010">
-          <caret line="95" column="43" selection-start-line="95" selection-start-column="43" selection-end-line="95" selection-end-column="43" />
+        <state vertical-scroll-proportion="-62.23077" vertical-offset="2537" max-vertical-offset="7320">
+          <caret line="277" column="13" selection-start-line="277" selection-start-column="13" selection-end-line="277" selection-end-column="13" />
           <folding>
             <element signature="e#18#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/output_tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.192307" vertical-offset="65" max-vertical-offset="885">
+          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.1734695" vertical-offset="0" max-vertical-offset="2790">
+          <caret line="169" column="14" selection-start-line="169" selection-start-column="14" selection-end-line="169" selection-end-column="14" />
+          <folding>
+            <element signature="e#52#62#0" expanded="true" />
           </folding>
         </state>
       </provider>

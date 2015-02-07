@@ -53,18 +53,18 @@ class DNAClass:
         self.dictionary[attribute] = value
 
     """
-    This method is designed to get the dictory associated with this sample.
+    This method is designed to get the dictionary associated with this dna
     """
 
     def get_dictionary(self):
         return self.dictionary
 
     """
-    This method is designed to get the value for specific value.
+    return value at key
     """
 
-    def get_value_at_attribute(self, attribute):
-        return self.dictionary[attribute]
+    def get_value_at_attribute(self, key):
+        return self.dictionary[key]
 
 
 """

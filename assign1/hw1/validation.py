@@ -39,9 +39,9 @@ class Validate:
         return True
 
     """
-    This method is called to check which group should be used for classification.
+    This method is called to check which group should be used for run.
 
-    return the node for classification.
+    return the node for run.
     """
     def cal_classified_group(self):
         temp_value = -1

@@ -11,7 +11,7 @@ class Node:
 	
 	Keyword arguments:
 	dictionary_attribute_keys -- is the attributes list for the input data.
-	found_attribute --  is the attributes list used so far for classification.
+	found_attribute --  is the attributes list used so far for run.
 	parent_property -- is the catalog from the parent.
 	list_of_dna_strands_in_node  -- is the list of samples to separate.
 	classification_key -- is the attribute name used for concept definition.
@@ -36,7 +36,7 @@ class Node:
 	"""
 	This method is used to calculate which attribute to choose.
 	
-	return true if there is an attribute for classification, otherwise, return false.
+	return true if there is an attribute for run, otherwise, return false.
 	"""
 	def calculate_new_attribute_fromEntropy(self):
 		temp_list = list(set(self.attribute_list) - set(self.found_attribute))
