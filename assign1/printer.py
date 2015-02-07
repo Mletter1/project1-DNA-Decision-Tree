@@ -3,14 +3,14 @@
 import sample
 
 """
-This file is used to print the result using a root node.
+This file is used to print the result using a root_node node.
 """
 
 class ShowResult:
     """
     Constrcutor.
     Key arguments:
-    root -- is the root node for the decision tree.
+    root_node -- is the root_node node for the decision tree.
     """
     def __init__(self, root):
         self.root = root

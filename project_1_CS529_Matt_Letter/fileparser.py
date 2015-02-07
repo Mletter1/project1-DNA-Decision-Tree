@@ -36,7 +36,7 @@ class ParserClass:
     def build_attributes(self):
         for i in range(self.attributeNum):
             if i == self.attributeNum -1:
-                self.attributes.append("isPromotor")
+                self.attributes.append("Promotor")
             else:
                 self.attributes.append("pos{0}".format(i))
 

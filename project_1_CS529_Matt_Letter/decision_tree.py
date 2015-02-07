@@ -13,23 +13,21 @@ it also acts as a level for each treee.
 
 class DecisionTree:
     """
-    Constructor
-
     Keyword arguments:
-    dictionary_attribute_keys -- is the attributes list for the input data.
-    found_attribute --  is the attributes list used so far for classification.
-    parent_property -- is the catalog from the parent.
-    list_of_dna_strands_in_node  -- is the list of samples to separate.
-    classification_key -- is the attribute name used for concept definition.
-    confidence_interval -- is the p-value for testing.
+    dictionary_attribute_keys input data.
+    found_attribute attributes already traversed.
+    parent_property parent entropy.
+    list_of_dna_strands_in_node list of dna in this node.
+    classification_key key value used to store section of promotor in dictionary.
+    confidence_interval 0->0.99999.
     """
 
     def __init__(self, attribute_list, found_attribute, parent_property, current_list, classification_key,
-                 confidence_interval):
+                 confidence_interval, info_gain=True):
         # our dictionary need some keys
         self.dictionary_attribute_keys = attribute_list
 
-        # this will be set to empty for the root node
+        # this will be set to empty for the root_node node
         self.found_attribute = found_attribute
 
         # list of data dna elements
@@ -48,109 +46,15 @@ class DecisionTree:
         self.max_info_gain = 10.0
         self.final_list_of_sorted_dna = {}
 
-        #number of positive and negative values in this node
+        # number of positive and negative values in this node
         self.positive = 0
         self.negative = 0
 
-        #ci
+        # ci
         self.confidence_interval = 0.0 + confidence_interval
 
-
     """
-    This method is used to calculate which attribute to choose.
-
-    return true if there is an attribute for classification, otherwise, return false.
-    """
-
-    def calculate_new_attribute(self):
-        # get bases list
-        bases_left = list(set(self.dictionary_attribute_keys) - set(self.found_attribute))
-        bases_left.remove(self.classification_key)
-
-        # we are at the bottom of the tree if there is no more dna
-        if len(bases_left) == 0:
-            return False
-
-        # find info gain for each base
-        for position_of_base in bases_left:
-
-            # set base info gain to that of the parent node
-            ini_gain = self.parent_entropy
-            child_average_gain = 0.0
-            error = 0
-
-            #list of info gain of
-            bases_seen_at_this_position = {}
-
-            #grab each dna strand
-            for dna_strand in self.list_of_dna_strands_in_node:
-                if dna_strand.get_value_at_attribute(position_of_base) in bases_seen_at_this_position.keys():
-                    #grab list at key and append dna strand to it
-                    bases_seen_at_this_position[dna_strand.get_value_at_attribute(position_of_base)].append(dna_strand)
-                else:
-                    #create a list at key, of dna strands
-                    bases_seen_at_this_position[dna_strand.get_value_at_attribute(position_of_base)] = [dna_strand]
-
-            #calc info gain for this position
-            for base_dna_list in bases_seen_at_this_position.values():
-                child_average_gain += (get_percent(len(base_dna_list), len(self.list_of_dna_strands_in_node))
-                                       * get_set_entropy(base_dna_list, self.classification_key))
-
-            #calc info gained by this split
-            ini_gain -= child_average_gain
-
-            ps = list()
-            ns = list()
-
-            #get each child node and grab number of positive and negative classes
-            for child_node in bases_seen_at_this_position.values():
-                result = get_positive_and_negative_class_numbers_as_dictionary(child_node, self.classification_key)
-                #build up all the positives
-                ps.append(result["positive"])
-                #build up all the negatives
-                ns.append(result["negative"])
-                error += 1 - get_max_error(ps, ns)
-                #print error
-
-
-            #if this is all true we found a better node to split on info gain
-            # if cal_chi_square(bases_seen_at_this_position.values(), self.classification_key,
-            #                   self.confidence_interval) and ini_gain > self.max_info_gain:
-            #     self.max_info_gain = ini_gain
-            #     self.pre_attribute = position_of_base
-            #     self.final_list_of_sorted_dna = bases_seen_at_this_position
-
-            #missclass error
-            if cal_chi_square(bases_seen_at_this_position.values(), self.classification_key,
-                              self.confidence_interval) and error < self.max_info_gain:
-                self.max_info_gain = error
-                self.pre_attribute = position_of_base
-                self.final_list_of_sorted_dna = bases_seen_at_this_position
-        print self.max_info_gain
-        return True
-
-    """
-    This method is used to prepare children nodes for calculation.
-    """
-
-    def preChildren(self):
-        for key in self.final_list_of_sorted_dna.keys():
-            new_attribute_list = list(self.found_attribute)
-            new_attribute_list.append(self.pre_attribute)
-            self.child_list[key] = DecisionTree(self.dictionary_attribute_keys, new_attribute_list, key,
-                                                self.final_list_of_sorted_dna[key],
-                                                self.classification_key, self.confidence_interval)
-
-    """
-    This method is called to calculate all children nodes.
-    """
-
-    def runChildren(self):
-        for child in self.child_list.values():
-            child.run_build_tree()
-
-    """
-    This method is called to calculate this node.
+    recursively build out the decision tree until empty set, pure set, or
     """
 
     def run_build_tree(self):
@@ -170,9 +74,102 @@ class DecisionTree:
         if not self.calculate_new_attribute():
             return
 
-        self.preChildren()
+        self.prep_for_split()
 
-        self.runChildren()
+        self.recurse_and_run_new_nodes()
+
+    """
+    find attribute to spilit on
+    return true after finding splitting attribute otherwise, return false.
+    """
+
+    def calculate_new_attribute(self):
+        # get bases list
+        bases_left = list(set(self.dictionary_attribute_keys) - set(self.found_attribute))
+        bases_left.remove(self.classification_key)
+
+        # we are at the bottom of the tree if there is no more dna
+        if len(bases_left) == 0:
+            return False
+
+        # find info gain for each base
+        for position_of_base in bases_left:
+
+            # set base info gain to that of the parent node
+            ini_gain = self.parent_entropy
+            child_average_gain = 0.0
+            error = 0
+
+            # list of info gain of
+            bases_seen_at_this_position = {}
+
+            # grab each dna strand
+            for dna_strand in self.list_of_dna_strands_in_node:
+                if dna_strand.get_value_at_attribute(position_of_base) in bases_seen_at_this_position.keys():
+                    #grab list at key and append dna strand to it
+                    bases_seen_at_this_position[dna_strand.get_value_at_attribute(position_of_base)].append(dna_strand)
+                else:
+                    #create a list at key, of dna strands
+                    bases_seen_at_this_position[dna_strand.get_value_at_attribute(position_of_base)] = [dna_strand]
+
+            #calc info gain for this position
+            for base_dna_list in bases_seen_at_this_position.values():
+                child_average_gain += (get_percent(len(base_dna_list), len(self.list_of_dna_strands_in_node))
+                                       * get_set_entropy(base_dna_list, self.classification_key))
+
+            #calc info gained by this split
+            ini_gain -= child_average_gain
+
+
+            #uncomment for missclass error
+            ps = list()
+            ns = list()
+
+            #get each child node and grab number of positive and negative classes
+            for child_node in bases_seen_at_this_position.values():
+                result = get_positive_and_negative_class_numbers_as_dictionary(child_node, self.classification_key)
+                #build up all the positives
+                ps.append(result["positive"])
+                #build up all the negatives
+                ns.append(result["negative"])
+                error += 1 - get_max_error(ps, ns)
+                #print error
+
+
+            #
+            if cal_chi_square(bases_seen_at_this_position.values(), self.classification_key,
+                              self.confidence_interval) and error < self.max_info_gain:
+                self.max_info_gain = error
+                self.pre_attribute = position_of_base
+                self.final_list_of_sorted_dna = bases_seen_at_this_position
+        print self.max_info_gain
+        return True
+
+    """
+    run child nodes
+    """
+
+    def recurse_and_run_new_nodes(self):
+        for branch_node in self.child_list.values():
+            branch_node.run_build_tree()
+
+    """
+    build child set of nodes
+    """
+
+    def prep_for_split(self):
+
+        # for each base
+        for splitting_base in self.final_list_of_sorted_dna.keys():
+            #populate our new list
+            new_attribute_list = list(self.found_attribute)
+            new_attribute_list.append(self.pre_attribute)
+
+            #build new node
+            self.child_list[splitting_base] = DecisionTree(self.dictionary_attribute_keys, new_attribute_list,
+                                                           splitting_base,
+                                                           self.final_list_of_sorted_dna[splitting_base],
+                                                           self.classification_key, self.confidence_interval)
 
     """
     cleanup
@@ -187,37 +184,32 @@ class DecisionTree:
 # ###########################################################################################
 
 """
-This file is used to validate the ID algorithm
+takes validations data and built dc tree and outputs the accuracy
 """
 
 
 class Validate:
     """
-    Constructor.
-
-    key arguments:
-    file_name -- is the name of file for validation.
-    root -- is the root node for training algorithm.
-    classification_key -- is the name of attribute for concept defination.
+    file_name validation file
+    root_node root_node node of the tree from dc
+    classification_key string key for class dictionary.
     """
 
-    def __init__(self, file_name, root, concept_string):
-        self.reader = fileparser.ParserClass(file_name)
-        self.reader.parse_file()
-        self.root = root
-        self.tree = {root: self.reader.data_elements}
-        self.sample_num = len(self.reader.data_elements)
-        self.concept_string = concept_string
+    def __init__(self, file_name, root_node, classification_string_for_dictionary):
+        self.io_parser = fileparser.ParserClass(file_name)
+        self.io_parser.parse_file()
+        self.root_node = root_node
+        self.tree = {root_node: self.io_parser.data_elements}
+        self.number_of_samples = len(self.io_parser.data_elements)
+        self.classification_string_for_dictionary = classification_string_for_dictionary
 
     """
-    This method is called to check if all list is pure.
-
-    return true if the list only contains promoters or non-promoters. Otherwise, return false.
+    return true if all + or -. Otherwise, return false.
     """
 
     def check_pure(self):
         for item in self.tree.values():
-            if is_single_class(item, self.concept_string) is False:
+            if is_single_class(item, self.classification_string_for_dictionary) is False:
                 return False
 
         return True
@@ -231,7 +223,7 @@ class Validate:
         temp_key = None
 
         for item in self.tree.keys():
-            temp = get_set_entropy(self.tree[item], self.concept_string)
+            temp = get_set_entropy(self.tree[item], self.classification_string_for_dictionary)
 
             if temp > temp_value:
                 temp_value = temp
@@ -240,36 +232,38 @@ class Validate:
         return temp_key
 
     """
-    This method is called to classify the specific group.
-
-    Key arguments:
-    key -- is the node used to classify specific group.
+    classify group.
+    key is the node used to classify the group
     """
 
     def classify_group(self, key):
-        value = self.tree.pop(key)
+        node_dna_list = self.tree.pop(key)
 
+        #build 2 dictionarys for temp values
         dictionary_1 = {}
         dictionary_2 = {}
 
-        for child in key.child_list.values():
-            dictionary_1[child.parent_property] = []
-            dictionary_2[child.parent_property] = child
+        #iterate through the child list
+        for child_node in key.child_list.values():
+            dictionary_1[child_node.parent_property] = []
+            dictionary_2[child_node.parent_property] = child_node
 
-        for item in value:
-            if item.get_value_at_attribute(key.pre_attribute) in dictionary_1.keys():
-                dictionary_1[item.get_value_at_attribute(key.pre_attribute)].append(item)
+        #build out dictionary with dna list
+        for dna in node_dna_list:
+            if dna.get_value_at_attribute(key.pre_attribute) in dictionary_1.keys():
+                dictionary_1[dna.get_value_at_attribute(key.pre_attribute)].append(dna)
             else:
-                dictionary_1[item.get_value_at_attribute(key.pre_attribute)] = [item]
-                dictionary_2[item.get_value_at_attribute(key.pre_attribute)] = DecisionTree(None, None, None, None, None,
-                                                                                         0)
+                dictionary_1[dna.get_value_at_attribute(key.pre_attribute)] = [dna]
+                dictionary_2[dna.get_value_at_attribute(key.pre_attribute)] = DecisionTree(None, None, None, None,
+                                                                                           None, 0)
 
+        #update items
         for item_key in dictionary_1.keys():
             if len(dictionary_1[item_key]) > 0:
                 self.tree[dictionary_2[item_key]] = dictionary_1[item_key]
 
     """
-    This method is used to classify the validation samples
+    classify the validation samples
     """
 
     def classification(self):
@@ -286,32 +280,32 @@ class Validate:
         self.classification()
 
     """
-    This method is used to calculate the error for one node.
-
-    Key arguments:
-    cal_list -- is node list of the child node to calculate error rate.
-
-    return the error for the node.
+    calculate error for one node.
+    cal_list node list to calculate error rate.
+    return error for node.
     """
 
     def cal_node_error(self, cal_list):
-        result = get_positive_and_negative_class_numbers_as_dictionary(cal_list, self.concept_string)
+        result = get_positive_and_negative_class_numbers_as_dictionary(cal_list, self.classification_string_for_dictionary)
 
         return 1 - (1.0 * max(result.values()) / len(cal_list))
 
     """
-    This method is called to calculate error information.
+    calculate error information.
 
     return the error rate for validation samples.
     """
 
-    def cal_error(self):
-        result = 0
+    def calculate_full_error_of_run(self):
 
-        for item in self.tree.values():
-            result += (self.cal_node_error(item) * len(item) / self.sample_num)
+        #initialize to float
+        accumulated_error = float()
 
-        return (1-result)*100
+        #accumulate error
+        for dna_list_for_node in self.tree.values():
+            accumulated_error += (self.cal_node_error(dna_list_for_node) * len(dna_list_for_node) / self.number_of_samples)
+
+        return (1 - accumulated_error) * 100
 
 
 # ###########################################################################################
@@ -383,7 +377,7 @@ return the entropy associated with the list passed and attribute.
 """
 
 
-def get_set_entropy(list_of_dna_strands, attribute="isPromotor"):
+def get_set_entropy(list_of_dna_strands, attribute="Promotor"):
     if (attribute is None) or (list_of_dna_strands is None):
         return -1
 
@@ -504,7 +498,7 @@ def cal_chi_square(child_nodes, classification_key, confidence_value):
         result = get_positive_and_negative_class_numbers_as_dictionary(child_node, classification_key)
         # build up all the positives
         ps.append(result["positive"])
-        #build up all the negatives
+        # build up all the negatives
         ns.append(result["negative"])
 
     for i in range(len(ps)):
@@ -516,14 +510,14 @@ def cal_chi_square(child_nodes, classification_key, confidence_value):
     for i in range(len(ps)):
         chi_sqr_value += (cal_square(ps[i], pps[i]) + cal_square(ns[i], nps[i]))
 
-    chi_result = scipy.stats.chi.pdf(chi_sqr_value, len(ps) - 1)
+    # chi_result = scipy.stats.chi.pdf(chi_sqr_value, len(ps) - 1)
 
     # print chi_sqr_value
     # print scipy.stats.chi2.ppf(confidence_value, 1)
     # print confidence_value
     # print chi_sqr_value >= scipy.stats.chi2.ppf(confidence_value, 1)
     # print
-    if math.isnan(chi_result):
+    if math.isnan(chi_sqr_value):
         return False
     return chi_sqr_value >= scipy.stats.chi2.ppf(confidence_value, 1)
 

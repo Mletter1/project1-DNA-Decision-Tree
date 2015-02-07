@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="db711326-614c-43a2-a697-71e117f5b257" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree.py" afterPath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/dna.py" afterPath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/dna.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/fileparser.py" afterPath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/fileparser.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py" afterPath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/printer.py" afterPath="$PROJECT_DIR$/assign1/printer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/printer.py" afterPath="$PROJECT_DIR$/project_1_CS529_Matt_Letter/printer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/hw1/validation.py" afterPath="$PROJECT_DIR$/assign1/hw1/validation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign1/hw1temp/validation.py" afterPath="$PROJECT_DIR$/assign1/hw1temp/validation.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="project1DecissonTrees.iws" />
@@ -23,7 +28,7 @@
     <SUITE FILE_PATH="coverage/project1DecissonTrees$fileparser.coverage" NAME="fileparser Coverage Results" MODIFIED="1422751524680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
     <SUITE FILE_PATH="coverage/project1DecissonTrees$dna.coverage" NAME="dna Coverage Results" MODIFIED="1422771904152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
     <SUITE FILE_PATH="coverage/project1DecissonTrees$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1423125476762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/assign1" />
-    <SUITE FILE_PATH="coverage/project1DecissonTrees$main__3_.coverage" NAME="main (3) Coverage Results" MODIFIED="1423192114124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
+    <SUITE FILE_PATH="coverage/project1DecissonTrees$main__3_.coverage" NAME="main (3) Coverage Results" MODIFIED="1423273285461" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
     <SUITE FILE_PATH="coverage/project1DecissonTrees$main__2_.coverage" NAME="main (2) Coverage Results" MODIFIED="1423125040442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/assign1/hw1" />
     <SUITE FILE_PATH="coverage/project1DecissonTrees$decision_tree.coverage" NAME="decision_tree Coverage Results" MODIFIED="1423125482094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_1_CS529_Matt_Letter" />
   </component>
@@ -42,8 +47,8 @@
       <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.692307" vertical-offset="765" max-vertical-offset="1905">
-              <caret line="80" column="18" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
+            <state vertical-scroll-proportion="-11.346154" vertical-offset="1415" max-vertical-offset="1905">
+              <caret line="121" column="11" selection-start-line="121" selection-start-column="10" selection-end-line="121" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -75,28 +80,28 @@
       <file leaf-file-name="dna.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/dna.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="797" max-vertical-offset="1335">
-              <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="818" max-vertical-offset="1335">
+              <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fileparser.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="fileparser.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/fileparser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="614" max-vertical-offset="1320">
-              <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+            <state vertical-scroll-proportion="-0.48255813" vertical-offset="804" max-vertical-offset="1320">
+              <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="decision_tree.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="decision_tree.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.70413226" vertical-offset="2889" max-vertical-offset="8115">
-              <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="473" max-vertical-offset="8025">
+              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding>
                 <element signature="e#18#29#0" expanded="true" />
               </folding>
@@ -125,14 +130,14 @@
         <option value="$PROJECT_DIR$/assign1/hw1/reader.py" />
         <option value="$PROJECT_DIR$/assign1/hw1/helper.py" />
         <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/printer.py" />
-        <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/dna.py" />
         <option value="$PROJECT_DIR$/assign1/node.py" />
         <option value="$PROJECT_DIR$/assign1/hw1/node.py" />
         <option value="$PROJECT_DIR$/assign1/hw1/main.py" />
         <option value="$PROJECT_DIR$/assign1/main.py" />
-        <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/fileparser.py" />
         <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py" />
         <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree.py" />
+        <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/dna.py" />
+        <option value="$PROJECT_DIR$/project_1_CS529_Matt_Letter/fileparser.py" />
       </list>
     </option>
   </component>
@@ -568,11 +573,11 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32915717" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2761905" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997722" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24943052" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38041002" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -882,13 +887,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assign1/hw1/validation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.051282052" vertical-offset="0" max-vertical-offset="1965">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assign1/hw1/sample.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="975">
@@ -938,6 +936,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.3507462" vertical-offset="0" max-vertical-offset="1815">
           <caret line="86" column="21" selection-start-line="86" selection-start-column="21" selection-end-line="86" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -945,6 +944,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33582088" vertical-offset="0" max-vertical-offset="536">
           <caret line="15" column="76" selection-start-line="15" selection-start-column="76" selection-end-line="15" selection-end-column="87" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -952,21 +952,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33582088" vertical-offset="0" max-vertical-offset="536">
           <caret line="15" column="74" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assign1/hw1/node.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1034" max-vertical-offset="1605">
-          <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/dna.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="485" max-vertical-offset="1335">
-          <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -982,29 +967,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/fileparser.py">
+    <entry file="file://$PROJECT_DIR$/assign1/hw1/node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="1320">
-          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1034" max-vertical-offset="1605">
+          <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py">
+    <entry file="file://$PROJECT_DIR$/assign1/hw1/validation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.692307" vertical-offset="765" max-vertical-offset="1905">
-          <caret line="80" column="18" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
+        <state vertical-scroll-proportion="-3.6350365" vertical-offset="1524" max-vertical-offset="1935">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="4" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/dna.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="818" max-vertical-offset="1335">
+          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/decision_tree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70413226" vertical-offset="2889" max-vertical-offset="8115">
-          <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="473" max-vertical-offset="8025">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <element signature="e#18#29#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.346154" vertical-offset="1415" max-vertical-offset="1905">
+          <caret line="121" column="11" selection-start-line="121" selection-start-column="10" selection-end-line="121" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project_1_CS529_Matt_Letter/fileparser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.48255813" vertical-offset="804" max-vertical-offset="1320">
+          <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
