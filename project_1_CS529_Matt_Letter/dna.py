@@ -76,9 +76,9 @@ if __name__ == "__main__":
     attributeNum = 10
     for i in range(attributeNum):
         if i == attributeNum - 1:
-            attributes.append("Promotor")
+            attributes.append("Promoter")
         else:
-            attributes.append("pos{0}".format(i + 1))
+            attributes.append("Posistion-{0}".format(i + 1))
     print attributes
     obj = DNAClass(copy.deepcopy(attributes))
     del obj

@@ -377,7 +377,7 @@ return the entropy associated with the list passed and attribute.
 """
 
 
-def get_set_entropy(list_of_dna_strands, attribute="Promotor"):
+def get_set_entropy(list_of_dna_strands, attribute="Promoter"):
     if (attribute is None) or (list_of_dna_strands is None):
         return -1
 

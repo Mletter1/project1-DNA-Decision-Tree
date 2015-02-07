@@ -62,7 +62,7 @@ def run():
     #debug data
 
     #run_build_tree training
-    tree_root = decision_tree.DecisionTree(parser.get_attribute_keys(), [], None, data, "Promotor", 0.99)
+    tree_root = decision_tree.DecisionTree(parser.get_attribute_keys(), [], None, data, "Promoter", 0.99)
     tree_root.run_build_tree()
 
     #print tree_root.child_list
@@ -77,7 +77,7 @@ def run():
 
 
     #validate the result
-    x = decision_tree.Validate("data/validation.txt", tree_root, "Promotor")
+    x = decision_tree.Validate("data/validation.txt", tree_root, "Promoter")
     x.classification()
 
     #print accuracy

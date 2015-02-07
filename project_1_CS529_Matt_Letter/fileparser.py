@@ -36,9 +36,9 @@ class ParserClass:
     def build_attributes(self):
         for i in range(self.attributeNum):
             if i == self.attributeNum -1:
-                self.attributes.append("Promotor")
+                self.attributes.append("Promoter")
             else:
-                self.attributes.append("pos{0}".format(i))
+                self.attributes.append("Posistion-{0}".format(i))
 
         #print self.attributes
         return self.attributes
